@@ -17,6 +17,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
     <style>
+        /* ===== ROOT VARIABLES ===== */
         :root {
             --primary-color: #2563eb;
             --secondary-color: #1e40af;
@@ -26,6 +27,7 @@
             --success-color: #10b981;
         }
 
+        /* ===== GLOBAL STYLES ===== */
         * {
             box-sizing: border-box;
         }
@@ -34,32 +36,94 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--dark-color);
+            margin: 0;
+            padding: 0;
         }
 
+        /* ===== CUSTOM UTILITIES ===== */
+        .text-primary-custom {
+            color: var(--primary-color) !important;
+        }
+
+        .bg-light-custom {
+            background: var(--light-color) !important;
+        }
+
+        .custom-badge {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* ===== NAVIGATION STYLES ===== */
         .navbar {
             backdrop-filter: blur(10px);
             background: rgba(255, 255, 255, 0.95) !important;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            padding: 1rem 0;
         }
 
         .navbar-brand {
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--primary-color) !important;
+            text-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
         }
 
         .nav-link {
             font-weight: 500;
             color: var(--dark-color) !important;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+            margin: 0 0.5rem;
         }
 
         .nav-link:hover {
             color: var(--primary-color) !important;
+            transform: translateY(-2px);
         }
 
-        /* Hero Section */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* ===== HERO SECTION STYLES ===== */
         .hero-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
@@ -86,29 +150,34 @@
         }
 
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 700;
             color: white;
             margin-bottom: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
         }
 
         .btn-hero {
             background: var(--accent-color);
             border: none;
-            padding: 15px 30px;
-            font-size: 1.1rem;
+            padding: 18px 35px;
+            font-size: 1.2rem;
             font-weight: 600;
             border-radius: 50px;
             color: white;
             transition: all 0.3s ease;
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
         }
 
         .btn-hero:hover {
@@ -118,47 +187,7 @@
             color: white;
         }
 
-        /* Glass morphism effect */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            padding: 2rem;
-            margin: 1rem 0;
-        }
-
-        /* Parallax sections */
-        .parallax-section {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-        }
-
-        .parallax-1 {
-            background-image: url('https://picsum.photos/1920/1080?random=1');
-        }
-
-        .parallax-overlay {
-            background: rgba(0, 0, 0, 0.6);
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-
-        .parallax-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Modern Cards */
+        /* ===== WHY CHOOSE US SECTION STYLES ===== */
         .modern-card {
             background: white;
             border-radius: 20px;
@@ -188,7 +217,17 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Timeline */
+        /* ===== PROCESS SECTION STYLES ===== */
+        .process-image {
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .process-image:hover {
+            transform: scale(1.05);
+        }
+
         .timeline {
             position: relative;
             padding: 0;
@@ -251,14 +290,60 @@
             margin-bottom: 1rem;
         }
 
-        /* Testimonial Slider */
+        /* ===== PARALLAX SECTION STYLES ===== */
+        .parallax-section {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+        }
+
+        .parallax-1 {
+            background-image: url('https://picsum.photos/1920/1080?random=1');
+        }
+
+        .parallax-overlay {
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+
+        /* ===== SERVICES SECTION STYLES ===== */
+        /* No additional styles needed - using existing modern-card */
+
+        /* ===== INDUSTRIES SECTION STYLES ===== */
+        /* No additional styles needed - using existing modern-card */
+
+        /* ===== TESTIMONIALS SECTION STYLES ===== */
         .testimonial-card {
             background: white;
             border-radius: 20px;
-            padding: 3rem;
-            margin: 0 1rem;
+            padding: 2.5rem;
+            margin: 1rem;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
             text-align: center;
+            height: 100%;
         }
 
         .testimonial-avatar {
@@ -280,7 +365,58 @@
             margin-bottom: 1rem;
         }
 
-        /* Footer */
+        /* ===== GUARANTEE SECTION STYLES ===== */
+        .guarantee-bg {
+            background: url('https://picsum.photos/1920/1080?random=tech') center/cover;
+            position: relative;
+        }
+
+        .guarantee-overlay {
+            background: rgba(255, 255, 255, 0.95);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .guarantee-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== CITIES SECTION STYLES ===== */
+        /* No additional styles needed - using existing utilities */
+
+        /* ===== CONTACT SECTION STYLES ===== */
+        .contact-bg {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            position: relative;
+        }
+
+        .contact-overlay {
+            background: rgba(255, 255, 255, 0.05);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== FOOTER STYLES ===== */
         .footer {
             background: var(--dark-color);
             color: white;
@@ -320,10 +456,18 @@
             transform: translateY(-3px);
         }
 
-        /* Responsive adjustments */
+        /* ===== RESPONSIVE STYLES ===== */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
             }
 
             .timeline:before {
@@ -338,46 +482,13 @@
                 width: calc(100% - 60px);
                 margin-left: 40px;
             }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
         }
 
-        /* Custom badges and elements */
-        .custom-badge {
-            background: var(--accent-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--dark-color);
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--accent-color);
-            border-radius: 2px;
-        }
-
-        .text-primary-custom {
-            color: var(--primary-color) !important;
-        }
-
-        .bg-light-custom {
-            background: var(--light-color) !important;
-        }
-
+        /* ===== PRICING STYLES ===== */
         .pricing-card {
             position: relative;
             overflow: hidden;
@@ -396,7 +507,7 @@
 </head>
 
 <body>
-    <!-- Navigation -->
+    <!-- ===== NAVIGATION SECTION ===== -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#home">
@@ -427,7 +538,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ===== HERO SECTION ===== -->
     <section id="home" class="hero-section">
         <div class="container">
             <div class="row align-items-center">
@@ -448,7 +559,7 @@
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
+    <!-- ===== WHY CHOOSE US SECTION ===== -->
     <section class="py-5 bg-light-custom">
         <div class="container">
             <div class="row">
@@ -459,7 +570,7 @@
                         excellence, affordability, and results.</p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="modern-card text-center">
                         <div class="card-icon mx-auto">
@@ -522,7 +633,7 @@
         </div>
     </section>
 
-    <!-- Process Section with Timeline -->
+    <!-- ===== PROCESS SECTION ===== -->
     <section id="process" class="py-5">
         <div class="container">
             <div class="row">
@@ -532,10 +643,14 @@
                         to ensure smooth project execution and outstanding results</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="https://picsum.photos/600/700?random=process" alt="Development Process"
+                        class="img-fluid process-image">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
                     <ul class="timeline">
-                        <li data-aos="fade-left">
+                        <li>
                             <div class="timeline-badge"></div>
                             <div class="timeline-panel">
                                 <img src="https://picsum.photos/80/80?random=discovery" alt="Discovery"
@@ -545,7 +660,7 @@
                                     in Australia.</p>
                             </div>
                         </li>
-                        <li data-aos="fade-left" data-aos-delay="100">
+                        <li>
                             <div class="timeline-badge"></div>
                             <div class="timeline-panel">
                                 <img src="https://picsum.photos/80/80?random=design" alt="Wireframing"
@@ -555,7 +670,7 @@
                                     best practices and mobile responsiveness in mind.</p>
                             </div>
                         </li>
-                        <li data-aos="fade-left" data-aos-delay="200">
+                        <li>
                             <div class="timeline-badge"></div>
                             <div class="timeline-panel">
                                 <img src="https://picsum.photos/80/80?random=development" alt="Development"
@@ -565,7 +680,7 @@
                                     integration of CMS or eCommerce platforms as needed.</p>
                             </div>
                         </li>
-                        <li data-aos="fade-left" data-aos-delay="300">
+                        <li>
                             <div class="timeline-badge"></div>
                             <div class="timeline-panel">
                                 <img src="https://picsum.photos/80/80?random=testing" alt="Testing"
@@ -575,7 +690,7 @@
                                     works perfectly before launch.</p>
                             </div>
                         </li>
-                        <li data-aos="fade-left" data-aos-delay="400">
+                        <li>
                             <div class="timeline-badge"></div>
                             <div class="timeline-panel">
                                 <img src="https://picsum.photos/80/80?random=launch" alt="Launch"
@@ -591,7 +706,7 @@
         </div>
     </section>
 
-    <!-- Parallax Section with Glass Effect -->
+    <!-- ===== PARALLAX SECTION ===== -->
     <section class="parallax-section parallax-1">
         <div class="parallax-overlay"></div>
         <div class="container parallax-content">
@@ -609,7 +724,7 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- ===== SERVICES SECTION ===== -->
     <section id="services" class="py-5 bg-light-custom">
         <div class="container">
             <div class="row">
@@ -618,7 +733,7 @@
                     <p class="lead" data-aos="fade-up" data-aos-delay="100">Built for Impact across all major cities</p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row g-4">
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="modern-card h-100">
                         <h4 class="text-primary-custom mb-3">
@@ -664,7 +779,7 @@
         </div>
     </section>
 
-    <!-- Industries Section -->
+    <!-- ===== INDUSTRIES SECTION ===== -->
     <section class="py-5">
         <div class="container">
             <div class="row">
@@ -674,246 +789,325 @@
                         Australia</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card border-0 text-center h-100 modern-card">
-                        <div class="card-body">
-                            <i class="bi bi-shop display-4 text-primary mb-3"></i>
-                            <h5>Retail & eCommerce</h5>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-shop"></i>
                         </div>
+                        <h5>E-commerce & Retail</h5>
+                        <p>Online stores, product catalogs, and shopping platforms.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card border-0 text-center h-100 modern-card">
-                        <div class="card-body">
-                            <i class="bi bi-heart-pulse display-4 text-primary mb-3"></i>
-                            <h5>Health & Fitness</h5>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-heart-pulse"></i>
                         </div>
+                        <h5>Healthcare</h5>
+                        <p>Medical practices, clinics, and health service providers.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card border-0 text-center h-100 modern-card">
-                        <div class="card-body">
-                            <i class="bi bi-house display-4 text-primary mb-3"></i>
-                            <h5>Real Estate</h5>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-building"></i>
                         </div>
+                        <h5>Real Estate</h5>
+                        <p>Property listings, agents, and real estate companies.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card border-0 text-center h-100 modern-card">
-                        <div class="card-body">
-                            <i class="bi bi-tools display-4 text-primary mb-3"></i>
-                            <h5>Construction & Trades</h5>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-briefcase"></i>
                         </div>
+                        <h5>Professional Services</h5>
+                        <p>Law firms, consulting, accounting, and business services.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-mortarboard"></i>
+                        </div>
+                        <h5>Education</h5>
+                        <p>Schools, universities, training centers, and online courses.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-camera"></i>
+                        </div>
+                        <h5>Creative & Media</h5>
+                        <p>Photography, design studios, and media companies.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-tools"></i>
+                        </div>
+                        <h5>Manufacturing</h5>
+                        <p>Industrial companies, suppliers, and B2B services.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="800">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h5>Logistics & Transport</h5>
+                        <p>Shipping, delivery, and transportation services.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- ===== TESTIMONIALS SECTION ===== -->
     <section id="testimonials" class="py-5 bg-light-custom">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center mb-5">
-                    <h2 class="section-title" data-aos="fade-up">Testimonials From Australian Clients</h2>
+                    <h2 class="section-title" data-aos="fade-up">What Our Australian Clients Say</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Real feedback from real businesses</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="testimonial-card mx-auto" style="max-width: 600px;">
-                                    <div class="testimonial-avatar">TB</div>
-                                    <div class="stars mb-3">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                    </div>
-                                    <p class="mb-4">"Great communication, top-notch design, and very affordable. Highly
-                                        recommend to any Australian business!"</p>
-                                    <h5 class="mb-1">Angus Fraser</h5>
-                                    <p class="text-muted">Melbourne</p>
-                                </div>
-                            </div>
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">SM</div>
+                        <div class="stars mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                        <p>"Web EASY Experts delivered exactly what we needed for our Melbourne-based retail business.
+                            The website is fast, mobile-friendly, and has increased our online sales by 40%."</p>
+                        <h6 class="mt-3">Sarah Mitchell</h6>
+                        <small class="text-muted">Retail Business Owner, Melbourne</small>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">DW</div>
+                        <div class="stars mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p>"Outstanding service! They understood our Brisbane market perfectly and created a
+                            professional website that represents our law firm excellently. Great communication
+                            throughout."</p>
+                        <h6 class="mt-3">David Wilson</h6>
+                        <small class="text-muted">Law Firm Partner, Brisbane</small>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">LT</div>
+                        <div class="stars mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p>"The cost savings were incredible compared to local Sydney agencies, but the quality was even
+                            better than expected. Highly recommend for any Australian business."</p>
+                        <h6 class="mt-3">Lisa Thompson</h6>
+                        <small class="text-muted">Marketing Director, Sydney</small>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Guarantee Section -->
+    <!-- ===== GUARANTEE SECTION ===== -->
+    <section class="py-5 guarantee-bg">
+        <div class="guarantee-overlay"></div>
+        <div class="container guarantee-content">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="zoom-in">
+                    <h2 class="section-title">Our 100% Satisfaction Guarantee</h2>
+                    <div class="row g-4 mt-4">
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="card-icon mx-auto mb-3">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <h5>Money Back Guarantee</h5>
+                                <p>If you're not completely satisfied, we'll refund your investment.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="card-icon mx-auto mb-3">
+                                    <i class="bi bi-clock"></i>
+                                </div>
+                                <h5>On-Time Delivery</h5>
+                                <p>We stick to deadlines and deliver your project when promised.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="card-icon mx-auto mb-3">
+                                    <i class="bi bi-headset"></i>
+                                </div>
+                                <h5>Ongoing Support</h5>
+                                <p>Free support and maintenance for the first 30 days after launch.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CITIES SECTION ===== -->
     <section class="py-5">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center" data-aos="fade-up">
-                    <div class="modern-card">
-                        <i class="bi bi-shield-check display-1 text-success mb-4"></i>
-                        <h2 class="mb-4">Get a Website with No Risk to You — 100% Satisfaction Guarantee</h2>
-                        <p class="lead mb-4">We're confident you'll love your new website — and we back it with a 100%
-                            satisfaction guarantee.</p>
-                        <p>At Web EASY Experts, we don't just aim to meet your expectations — we're committed to
-                            exceeding them. If you're not happy with the initial design or direction, we'll revise it
-                            until you're completely satisfied, at no extra cost.</p>
-                        <div class="row mt-4">
-                            <div class="col-md-4">
-                                <span class="badge bg-success fs-6 px-3 py-2">No upfront risk</span>
-                            </div>
-                            <div class="col-md-4">
-                                <span class="badge bg-success fs-6 px-3 py-2">No hidden charges</span>
-                            </div>
-                            <div class="col-md-4">
-                                <span class="badge bg-success fs-6 px-3 py-2">Professional results</span>
-                            </div>
-                        </div>
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">Serving Major Australian Cities</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Local expertise for businesses nationwide
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-3">
+                        <i class="bi bi-geo-alt-fill text-primary fs-2 mb-3"></i>
+                        <h6>Sydney</h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-3">
+                        <i class="bi bi-geo-alt-fill text-primary fs-2 mb-3"></i>
+                        <h6>Melbourne</h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-3">
+                        <i class="bi bi-geo-alt-fill text-primary fs-2 mb-3"></i>
+                        <h6>Brisbane</h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="p-3">
+                        <i class="bi bi-geo-alt-fill text-primary fs-2 mb-3"></i>
+                        <h6>Perth</h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="p-3">
+                        <i class="bi bi-geo-alt-fill text-primary fs-2 mb-3"></i>
+                        <h6>Adelaide</h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="p-3">
+                        <i class="bi bi-geo-alt-fill text-primary fs-2 mb-3"></i>
+                        <h6>Canberra</h6>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Cities We Serve -->
-    <section class="py-5 bg-light-custom">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="section-title" data-aos="fade-up">Cities We Serve Across Australia</h2>
-                    <p class="lead" data-aos="fade-up" data-aos-delay="100">From major cities to regional areas
-                        including Tasmania</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="d-flex align-items-center p-3 bg-white rounded-3 shadow-sm">
-                        <i class="bi bi-geo-alt-fill text-primary me-3 fs-4"></i>
-                        <div>
-                            <h6 class="mb-1">Sydney</h6>
-                            <small class="text-muted">New South Wales</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="d-flex align-items-center p-3 bg-white rounded-3 shadow-sm">
-                        <i class="bi bi-geo-alt-fill text-primary me-3 fs-4"></i>
-                        <div>
-                            <h6 class="mb-1">Melbourne</h6>
-                            <small class="text-muted">Victoria</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="300">
-                    <div class="d-flex align-items-center p-3 bg-white rounded-3 shadow-sm">
-                        <i class="bi bi-geo-alt-fill text-primary me-3 fs-4"></i>
-                        <div>
-                            <h6 class="mb-1">Brisbane</h6>
-                            <small class="text-muted">Queensland</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="400">
-                    <div class="d-flex align-items-center p-3 bg-white rounded-3 shadow-sm">
-                        <i class="bi bi-geo-alt-fill text-primary me-3 fs-4"></i>
-                        <div>
-                            <h6 class="mb-1">Perth</h6>
-                            <small class="text-muted">Western Australia</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="500">
-                    <div class="d-flex align-items-center p-3 bg-white rounded-3 shadow-sm">
-                        <i class="bi bi-geo-alt-fill text-primary me-3 fs-4"></i>
-                        <div>
-                            <h6 class="mb-1">Adelaide</h6>
-                            <small class="text-muted">South Australia</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="600">
-                    <div class="d-flex align-items-center p-3 bg-white rounded-3 shadow-sm">
-                        <i class="bi bi-geo-alt-fill text-primary me-3 fs-4"></i>
-                        <div>
-                            <h6 class="mb-1">Tasmania</h6>
-                            <small class="text-muted">Hobart, Launceston & More</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="section-title" data-aos="fade-up">Get Started in The Smart Way with Web EASY Experts
-                        Today</h2>
-                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Want to grow your business online with a
-                        stunning, high-performance website?</p>
-                </div>
-            </div>
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="py-5 contact-bg">
+        <div class="contact-overlay"></div>
+        <div class="container contact-content">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="modern-card text-center" data-aos="zoom-in">
-                        <i class="bi bi-telephone-fill display-4 text-primary mb-4"></i>
-                        <h3 class="mb-4">Let's talk with Web EASY Experts</h3>
-                        <p class="mb-4">India based Australia's trusted website design and development agency.</p>
-                        <a href="#" class="btn btn-hero btn-lg">
-                            <i class="bi bi-calendar-check me-2"></i>Schedule a Free Consultation Today!
-                        </a>
-                        <div class="row mt-5">
-                            <div class="col-md-4 mb-3">
-                                <div class="d-flex flex-column align-items-center">
-                                    <i class="bi bi-envelope-fill text-primary fs-3 mb-2"></i>
-                                    <h6>Email Us</h6>
-                                    <small class="text-muted">Quick Response</small>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <div class="d-flex flex-column align-items-center">
-                                    <i class="bi bi-telephone-fill text-primary fs-3 mb-2"></i>
-                                    <h6>Call Us</h6>
-                                    <small class="text-muted">Direct Support</small>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <div class="d-flex flex-column align-items-center">
-                                    <i class="bi bi-camera-video-fill text-primary fs-3 mb-2"></i>
-                                    <h6>Video Call</h6>
-                                    <small class="text-muted">Face to Face</small>
-                                </div>
-                            </div>
+                    <div class="contact-card" data-aos="fade-up">
+                        <div class="text-center mb-4">
+                            <h2 class="section-title text-dark">Get Your Free Quote Today</h2>
+                            <p class="lead">Ready to take your Australian business online? Let's discuss your project!
+                            </p>
                         </div>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Full Name *</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="city" class="form-label">City</label>
+                                    <select class="form-select" id="city">
+                                        <option selected>Choose your city...</option>
+                                        <option value="sydney">Sydney</option>
+                                        <option value="melbourne">Melbourne</option>
+                                        <option value="brisbane">Brisbane</option>
+                                        <option value="perth">Perth</option>
+                                        <option value="adelaide">Adelaide</option>
+                                        <option value="canberra">Canberra</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="service" class="form-label">Service Required *</label>
+                                    <select class="form-select" id="service" required>
+                                        <option selected>Select a service...</option>
+                                        <option value="website-design">Website Design</option>
+                                        <option value="ecommerce">E-commerce Development</option>
+                                        <option value="wordpress">WordPress Development</option>
+                                        <option value="shopify">Shopify Store</option>
+                                        <option value="custom">Custom Web Application</option>
+                                        <option value="maintenance">Website Maintenance</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="budget" class="form-label">Budget Range</label>
+                                    <select class="form-select" id="budget">
+                                        <option selected>Select your budget...</option>
+                                        <option value="1000-3000">$1,000 - $3,000</option>
+                                        <option value="3000-5000">$3,000 - $5,000</option>
+                                        <option value="5000-10000">$5,000 - $10,000</option>
+                                        <option value="10000+">$10,000+</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Project Details</label>
+                                    <textarea class="form-control" id="message" rows="4"
+                                        placeholder="Tell us about your project requirements..."></textarea>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-hero">
+                                        <i class="bi bi-send me-2"></i>Get Free Quote
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5>
-                        <i class="bi bi-globe me-2"></i>Web EASY Experts
-                    </h5>
-                    <p class="mb-4">Leading Indian Web Design Company for Australian Businesses. We deliver world-class
-                        websites at competitive prices.</p>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5>Web EASY Experts</h5>
+                    <p>Leading Indian web design company specializing in creating outstanding websites for Australian
+                        businesses at competitive rates.</p>
                     <div class="social-icons">
                         <a href="#"><i class="bi bi-facebook"></i></a>
                         <a href="#"><i class="bi bi-twitter"></i></a>
@@ -921,51 +1115,49 @@
                         <a href="#"><i class="bi bi-instagram"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
+                <div class="col-lg-2">
                     <h5>Services</h5>
                     <ul class="list-unstyled">
                         <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">eCommerce</a></li>
-                        <li><a href="#">SEO Services</a></li>
-                        <li><a href="#">Maintenance</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5>Technologies</h5>
-                    <ul class="list-unstyled">
                         <li><a href="#">WordPress</a></li>
+                        <li><a href="#">E-commerce</a></li>
                         <li><a href="#">Shopify</a></li>
-                        <li><a href="#">ReactJS</a></li>
-                        <li><a href="#">Laravel</a></li>
-                        <li><a href="#">PHP</a></li>
+                        <li><a href="#">SEO</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5>Industries</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Retail</a></li>
-                        <li><a href="#">Healthcare</a></li>
-                        <li><a href="#">Real Estate</a></li>
-                        <li><a href="#">Construction</a></li>
-                        <li><a href="#">Finance</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4">
+                <div class="col-lg-2">
                     <h5>Company</h5>
                     <ul class="list-unstyled">
                         <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Process</a></li>
                         <li><a href="#">Portfolio</a></li>
                         <li><a href="#">Testimonials</a></li>
                         <li><a href="#">Contact</a></li>
-                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Cities</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Sydney</a></li>
+                        <li><a href="#">Melbourne</a></li>
+                        <li><a href="#">Brisbane</a></li>
+                        <li><a href="#">Perth</a></li>
+                        <li><a href="#">Adelaide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-envelope me-2"></i>info@webeasyexperts.com</li>
+                        <li><i class="bi bi-phone me-2"></i>+61 (0) 123 456 789</li>
+                        <li><i class="bi bi-geo-alt me-2"></i>Serving Australia from India</li>
                     </ul>
                 </div>
             </div>
-            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            <hr class="my-4">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2025 Web EASY Experts. All rights reserved.</p>
+                    <p class="mb-0">&copy; 2024 Web EASY Experts. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <a href="#" class="me-3">Privacy Policy</a>
@@ -984,24 +1176,12 @@
     <script>
         // Initialize AOS
         AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
+            duration: 1000,
+            once: true,
+            offset: 100
         });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
-            } else {
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            }
-        });
-
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1015,10 +1195,20 @@
             });
         });
 
-        // Auto-advance testimonial carousel
-        const testimonialCarousel = new bootstrap.Carousel(document.getElementById('testimonialCarousel'), {
-            interval: 5000,
-            wrap: true
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We\'ll get back to you within 24 hours.');
         });
     </script>
 </body>
