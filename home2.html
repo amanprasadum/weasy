@@ -4,578 +4,658 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Web EASY Experts - Leading Indian Web Design Company for Australian Businesses. Professional website design & development at competitive prices. Serving Sydney, Melbourne, Brisbane & all Australia.">
-    <title>Web EASY Experts – Leading Indian Web Design Company for Australian Businesses</title>
+    <title>Web EASY Experts - Leading Indian Web Design Company for Australian Businesses</title>
+    <meta name="description"
+        content="Web EASY Experts - Trusted web design and development company for Australian businesses. Get world-class websites at competitive prices.">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
-    <!-- Font Awesome for Icons -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    </noscript>
-
-    <!-- Critical CSS -->
     <style>
-        /* === Reset and Base Styles === */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --success-color: #10b981;
+        }
+
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #2c3e50;
-            background: #ffffff;
+            color: var(--dark-color);
         }
 
-        /* === Enhanced Header Styles === */
-        .header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 1.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
         .navbar-brand {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #ffffff !important;
-            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color) !important;
             transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .btn-hero {
+            background: var(--accent-color);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(245, 158, 11, 0.4);
+            background: #d97706;
+            color: white;
+        }
+
+        /* Glass morphism effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+
+        /* Parallax sections */
+        .parallax-section {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            min-height: 500px;
             display: flex;
             align-items: center;
         }
 
-        .navbar-brand:hover {
-            color: #64b5f6 !important;
+        .parallax-1 {
+            background-image: url('https://picsum.photos/1920/1080?random=1');
         }
 
-        .nav-link {
-            color: white !important;
-            font-weight: 600;
-            transition: color 0.3s ease;
-            padding: 0.75rem 1.5rem !important;
-            border-radius: 25px;
+        .parallax-overlay {
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
         }
 
-        .nav-link:hover {
-            color: #64b5f6 !important;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .navbar-nav {
-            gap: 1.5rem;
-        }
-
-        .navbar-toggler {
-            border: 2px solid white;
-            padding: 0.75rem;
-            border-radius: 5px;
-        }
-
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-        }
-
-        .navbar-collapse {
-            background: #1e3c72;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-top: 0.75rem;
-        }
-
-        @media (min-width: 768px) {
-            .navbar-collapse {
-                background: none;
-                padding: 0;
-                margin-top: 0;
-            }
-        }
-
-        /* === Hero Section with Vector Art === */
-        .hero {
-            padding: 0;
-            height: 600px;
-            background: url('https://via.placeholder.com/1920x600.png?text=Vector+Art+Here') no-repeat center/cover; /* Replace with actual vector art URL */
+        .parallax-content {
             position: relative;
+            z-index: 2;
+        }
+
+        /* Modern Cards */
+        .modern-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+            border: none;
+            height: 100%;
+        }
+
+        .modern-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 0;
+            list-style: none;
+        }
+
+        .timeline:before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 40px;
+            width: 4px;
+            margin-left: -1.5px;
+            content: '';
+            background-color: var(--primary-color);
+        }
+
+        .timeline>li {
+            position: relative;
+            margin-bottom: 50px;
+            min-height: 50px;
+        }
+
+        .timeline>li:after,
+        .timeline>li:before {
+            content: '';
+            display: table;
+        }
+
+        .timeline>li:after {
+            clear: both;
+        }
+
+        .timeline>li .timeline-panel {
+            position: relative;
+            float: right;
+            width: calc(100% - 90px);
+            padding: 20px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline>li .timeline-badge {
+            position: absolute;
+            left: 25px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 4px solid white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonial Slider */
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 0 1rem;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: var(--primary-color);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
         }
 
-        .hero-content {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 2rem;
-            border-radius: 15px;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 800;
+        .stars {
+            color: var(--accent-color);
             margin-bottom: 1rem;
         }
 
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #ff6b35;
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
             color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer h5 {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 50%;
+            margin-right: 10px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
         }
 
-        .cta-button:hover {
-            background: #e55a2b;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        .social-icons a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
         }
 
-        /* === Timeline Styles === */
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .timeline:before {
+                left: 20px;
+            }
+
+            .timeline>li .timeline-badge {
+                left: 5px;
+            }
+
+            .timeline>li .timeline-panel {
+                width: calc(100% - 60px);
+                margin-left: 40px;
+            }
         }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: #ff6b35;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-            width: 100%;
-        }
-
-        .timeline-item img {
-            width: 200px;
-            height: 150px;
-            object-fit: cover;
-            margin-right: 2rem;
-        }
-
-        .timeline-content {
-            width: 50%;
-            padding: 1rem;
-            background: #f8fafc;
-            border-radius: 10px;
-        }
-
-        .timeline-item .timeline-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-item .timeline-content p {
+        /* Custom badges and elements */
+        .custom-badge {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
             font-size: 0.9rem;
         }
 
-        @media (max-width: 768px) {
-            .timeline-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            .timeline-item img {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
-            .timeline-content {
-                width: 100%;
-            }
-        }
-
-        /* === Services Section with Experimental UI === */
-        .services {
-            padding: 4rem 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e9ecef 100%);
-        }
-
-        .service-card {
-            display: flex;
-            align-items: center;
-            background: white;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            height: 200px;
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-card img {
-            width: 300px;
-            height: 100%;
-            object-fit: cover;
-            border-top-left-radius: 15px;
-            border-bottom-left-radius: 15px;
-        }
-
-        .service-card .card-body {
-            padding: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .service-card .card-title {
-            font-size: 1.5rem;
-            color: #1e3c72;
-        }
-
-        .service-card .card-text {
-            font-size: 1rem;
-            color: #5a6c7d;
-        }
-
-        /* === Section and Heading Styles === */
         .section-title {
             font-size: 2.5rem;
-            color: #1e3c72;
-            text-align: center;
             font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
             position: relative;
-            margin-bottom: 3rem;
         }
 
         .section-title::after {
             content: '';
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(135deg, #ff6b35, #e55a2b);
             position: absolute;
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
             border-radius: 2px;
         }
 
-        .section-subtitle {
-            font-size: 1.1rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #5a6c7d;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .text-primary-custom {
+            color: var(--primary-color) !important;
         }
 
-        /* === Footer Styles === */
-        .footer {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 4rem 0 2rem;
-            text-align: center;
+        .bg-light-custom {
+            background: var(--light-color) !important;
         }
 
-        .footer-logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 1rem;
+        .pricing-card {
+            position: relative;
+            overflow: hidden;
         }
 
-        .footer-description {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-            font-size: 1rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-            text-align: left;
-        }
-
-        .footer-column h4 {
-            color: #64b5f6;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .footer-column ul {
-            list-style: none;
-            line-height: 2;
-        }
-
-        .footer-column a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-column a:hover {
-            color: #64b5f6;
-        }
-
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-social a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            color: #64b5f6;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 2rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* === Mobile Responsive Base === */
-        @media (max-width: 768px) {
-            .hero {
-                height: 400px;
-            }
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
-            .service-card {
-                flex-direction: column;
-                height: auto;
-            }
-            .service-card img {
-                width: 100%;
-                height: 200px;
-                border-top-left-radius: 15px;
-                border-top-right-radius: 15px;
-                border-bottom-left-radius: 0;
-            }
-            .timeline-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            .timeline-item img {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
-            .timeline-content {
-                width: 100%;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary-color);
         }
     </style>
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar navbar-expand-md">
-            <div class="container">
-                <a class="navbar-brand" href="/">Web EASY Experts</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="bi bi-globe me-2"></i>Web EASY Experts
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#process">Process</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-                <div class="collapse navbar-collapse" id="navbarContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#services">Services</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content" data-aos="fade-right">
+                    <span class="custom-badge mb-3 d-inline-block">Leading Indian Web Design Company</span>
+                    <h1 class="hero-title">Web Design & Development for Australian Businesses</h1>
+                    <p class="hero-subtitle">We are an India-based agency known for delivering world-class websites at
+                        highly competitive prices to businesses all across Australia.</p>
+                    <a href="#contact" class="btn btn-hero">
+                        <i class="bi bi-rocket-takeoff me-2"></i>Get Started Today
+                    </a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="https://picsum.photos/600/400?random=tech" alt="Web Development"
+                        class="img-fluid rounded-4 shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-5 bg-light-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">Why We're the Best Website Design & Development Company
+                        in Australia</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Choosing Web EASY Experts means choosing
+                        excellence, affordability, and results.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <h4>Australian-Focused Strategy</h4>
+                        <p>We build for your audience. All designs are tailored for Australian industries and users.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h4>Platform-Specific Teams</h4>
+                        <p>WordPress, Shopify, Laravel, ReactJS, or custom PHP – we assign dedicated developers for each
+                            platform.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-currency-dollar"></i>
+                        </div>
+                        <h4>Affordable Development</h4>
+                        <p>Our India-based pricing means massive cost savings for you, without cutting corners on
+                            quality.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-target"></i>
+                        </div>
+                        <h4>Result-Driven Approach</h4>
+                        <p>From web design-development to SEO, we focus on achieving your business goals.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-chat-dots"></i>
+                        </div>
+                        <h4>Transparent Communication</h4>
+                        <p>You'll get regular updates, clear timelines, and easy collaboration tools for hassle-free
+                            project delivery.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-tools"></i>
+                        </div>
+                        <h4>Nominal Maintenance Cost</h4>
+                        <p>Enjoy long-term durability with minimal upkeep expenses, keeping your project cost-efficient.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section with Timeline -->
+    <section id="process" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">Our Web Design & Development Process</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">We follow research and development process
+                        to ensure smooth project execution and outstanding results</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <ul class="timeline">
+                        <li data-aos="fade-left">
+                            <div class="timeline-badge"></div>
+                            <div class="timeline-panel">
+                                <img src="https://picsum.photos/80/80?random=discovery" alt="Discovery"
+                                    class="timeline-image">
+                                <h4>Discovery & Consultation</h4>
+                                <p>We start by understanding your goals, business type, competitors, and target audience
+                                    in Australia.</p>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#process">Process</a>
+                        <li data-aos="fade-left" data-aos-delay="100">
+                            <div class="timeline-badge"></div>
+                            <div class="timeline-panel">
+                                <img src="https://picsum.photos/80/80?random=design" alt="Wireframing"
+                                    class="timeline-image">
+                                <h4>Wireframing & Design Concepts</h4>
+                                <p>Our website designers' team creates layout ideas and mockups, keeping Australian UX
+                                    best practices and mobile responsiveness in mind.</p>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#pricing">Pricing</a>
+                        <li data-aos="fade-left" data-aos-delay="200">
+                            <div class="timeline-badge"></div>
+                            <div class="timeline-panel">
+                                <img src="https://picsum.photos/80/80?random=development" alt="Development"
+                                    class="timeline-image">
+                                <h4>Development Phase</h4>
+                                <p>Our expert web developers' team build your website using clean code, with full
+                                    integration of CMS or eCommerce platforms as needed.</p>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
+                        <li data-aos="fade-left" data-aos-delay="300">
+                            <div class="timeline-badge"></div>
+                            <div class="timeline-panel">
+                                <img src="https://picsum.photos/80/80?random=testing" alt="Testing"
+                                    class="timeline-image">
+                                <h4>Quality Testing & Optimization</h4>
+                                <p>We test across devices and browsers, optimize page speed, and make sure everything
+                                    works perfectly before launch.</p>
+                            </div>
+                        </li>
+                        <li data-aos="fade-left" data-aos-delay="400">
+                            <div class="timeline-badge"></div>
+                            <div class="timeline-panel">
+                                <img src="https://picsum.photos/80/80?random=launch" alt="Launch"
+                                    class="timeline-image">
+                                <h4>Launch & Ongoing Support</h4>
+                                <p>Once approved, we launch your site and offer continued support, maintenance, and
+                                    updates as your business grows.</p>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section with Vector Art -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Leading Web Design for Australian Businesses</h1>
-            <p>Transform your online presence with our expert India-based team.</p>
-            <a href="#contact" class="cta-button">Get Started Now</a>
         </div>
     </section>
 
-    <!-- Process Section (Vertical Timeline with Image) -->
-    <section class="section" id="process">
-        <div class="container">
-            <h2 class="section-title">Our Web Design & Development Process</h2>
-            <p class="section-subtitle">A streamlined process to ensure outstanding results.</p>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <img src="https://via.placeholder.com/200x150.png?text=Discovery" alt="Discovery">
-                    <div class="timeline-content">
-                        <h3>Discovery & Consultation</h3>
-                        <p>Understand your goals and target audience.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <img src="https://via.placeholder.com/200x150.png?text=Wireframing" alt="Wireframing">
-                    <div class="timeline-content">
-                        <h3>Wireframing & Design</h3>
-                        <p>Create layout ideas with Australian UX.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <img src="https://via.placeholder.com/200x150.png?text=Development" alt="Development">
-                    <div class="timeline-content">
-                        <h3>Development Phase</h3>
-                        <p>Build with clean code and CMS integration.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <img src="https://via.placeholder.com/200x150.png?text=Testing" alt="Testing">
-                    <div class="timeline-content">
-                        <h3>Quality Testing</h3>
-                        <p>Optimize speed and ensure perfection.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <img src="https://via.placeholder.com/200x150.png?text=Launch" alt="Launch">
-                    <div class="timeline-content">
-                        <h3>Launch & Support</h3>
-                        <p>Launch and provide ongoing support.</p>
+    <!-- Parallax Section with Glass Effect -->
+    <section class="parallax-section parallax-1">
+        <div class="parallax-overlay"></div>
+        <div class="container parallax-content">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="glass-card text-center text-white" data-aos="zoom-in">
+                        <h3 class="mb-4">Cost of Website Development in Australia — Save with Web EASY Experts</h3>
+                        <p class="mb-4">Website development in Australia typically ranges from AUD 3,000 to AUD 15,000+
+                            depending on the complexity. At Web EASY Experts, you get the same quality starting from a
+                            lower budget – thanks to our India-based efficiency and low overheads.</p>
+                        <span class="badge bg-warning text-dark fs-6 px-3 py-2">Fixed-cost packages available</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section with Experimental UI -->
-    <section class="services" id="services">
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-light-custom">
         <div class="container">
-            <h2 class="section-title">Our Web Design Services</h2>
-
-            <div class="row g-3">
-                <div class="col-12">
-                    <div class="service-card">
-                        <img src="https://via.placeholder.com/300x200.png?text=Web+Design" alt="Web Design">
-                        <div class="card-body">
-                            <h3 class="card-title">Web Design & Development</h3>
-                            <p class="card-text">Custom websites tailored for Australian businesses with modern UI/UX.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="service-card">
-                        <img src="https://via.placeholder.com/300x200.png?text=E-commerce" alt="E-commerce">
-                        <div class="card-body">
-                            <h3 class="card-title">E-commerce Solutions</h3>
-                            <p class="card-text">Build robust online stores with WooCommerce, Shopify, or Magento.</p>
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">Our Top Level Web Design Services in Australia</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Built for Impact across all major cities</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="section" id="pricing" style="background: #f8fafc;">
-        <div class="container">
-            <h2 class="section-title">Cost of Website Development in Australia</h2>
-            <p class="section-subtitle">High-quality websites at lower budgets with our India-based efficiency.</p>
-            <p class="text-center fs-5 mt-4">Website development typically ranges from AUD 3,000 to AUD 15,000+. We offer fixed-cost packages and custom pricing.</p>
-        </div>
-    </section>
-
-    <!-- Technologies Section -->
-    <section class="section" style="background: #f8fafc;">
-        <div class="container">
-            <h2 class="section-title">Technologies We Use</h2>
-            <p class="section-subtitle">High-performance websites powered by top technologies.</p>
-
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="https://via.placeholder.com/800x800.png?text=Frontend" class="card-img-top" alt="Frontend Technologies">
-                        <div class="card-body">
-                            <h4 class="card-title">Frontend Technologies</h4>
-                            <div class="tech-items d-flex flex-wrap gap-2">
-                                <span class="tech-item">HTML5</span>
-                                <span class="tech-item">CSS3</span>
-                                <span class="tech-item">JavaScript</span>
-                                <span class="tech-item">ReactJS</span>
-                                <span class="tech-item">Angular</span>
-                            </div>
-                        </div>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="modern-card h-100">
+                        <h4 class="text-primary-custom mb-3">
+                            <i class="bi bi-check-circle-fill me-2 text-success"></i>
+                            What Each Site Includes
+                        </h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>Mobile Responsive First
+                                Layout</li>
+                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>Clean & Modern UI/UX</li>
+                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>Fast Load Speed</li>
+                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>SEO Friendly Structure</li>
+                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>Easy Content Management
+                                System</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="https://via.placeholder.com/800x800.png?text=CMS" class="card-img-top" alt="CMS & E-commerce">
-                        <div class="card-body">
-                            <h4 class="card-title">CMS & E-commerce</h4>
-                            <div class="tech-items d-flex flex-wrap gap-2">
-                                <span class="tech-item">WordPress</span>
-                                <span class="tech-item">WooCommerce</span>
-                                <span class="tech-item">Shopify</span>
-                                <span class="tech-item">Magento</span>
-                                <span class="tech-item">Wix</span>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="modern-card h-100">
+                        <h4 class="text-primary-custom mb-3">
+                            <i class="bi bi-code-slash me-2"></i>
+                            Technologies We Use
+                        </h4>
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="badge bg-primary mb-2 me-1">HTML5</span>
+                                <span class="badge bg-primary mb-2 me-1">CSS3</span>
+                                <span class="badge bg-primary mb-2 me-1">JavaScript</span>
+                                <span class="badge bg-primary mb-2 me-1">WordPress</span>
+                                <span class="badge bg-primary mb-2 me-1">Shopify</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="https://via.placeholder.com/800x800.png?text=Backend" class="card-img-top" alt="Backend & Database">
-                        <div class="card-body">
-                            <h4 class="card-title">Backend & Database</h4>
-                            <div class="tech-items d-flex flex-wrap gap-2">
-                                <span class="tech-item">PHP</span>
-                                <span class="tech-item">Laravel</span>
-                                <span class="tech-item">Node.js</span>
-                                <span class="tech-item">MySQL</span>
-                                <span class="tech-item">API Integrations</span>
+                            <div class="col-6">
+                                <span class="badge bg-secondary mb-2 me-1">ReactJS</span>
+                                <span class="badge bg-secondary mb-2 me-1">Laravel</span>
+                                <span class="badge bg-secondary mb-2 me-1">PHP</span>
+                                <span class="badge bg-secondary mb-2 me-1">MySQL</span>
+                                <span class="badge bg-secondary mb-2 me-1">Node.js</span>
                             </div>
                         </div>
                     </div>
@@ -585,156 +665,360 @@
     </section>
 
     <!-- Industries Section -->
-    <section class="section">
+    <section class="py-5">
         <div class="container">
-            <h2 class="section-title">Trusted by Australian Businesses</h2>
-            <p class="section-subtitle">Serving startups, SMEs, and enterprises across industries.</p>
-
-            <div class="row g-3">
-                <div class="col-6 col-md-3"><div class="industry-item card shadow-sm border-0 text-center p-3"><i class="fas fa-shopping-cart"></i><span>Retail & eCommerce</span></div></div>
-                <div class="col-6 col-md-3"><div class="industry-item card shadow-sm border-0 text-center p-3"><i class="fas fa-heartbeat"></i><span>Health & Fitness</span></div></div>
-                <div class="col-6 col-md-3"><div class="industry-item card shadow-sm border-0 text-center p-3"><i class="fas fa-home"></i><span>Real Estate</span></div></div>
-                <div class="col-6 col-md-3"><div class="industry-item card shadow-sm border-0 text-center p-3"><i class="fas fa-hard-hat"></i><span>Construction & Trades</span></div></div>
-                <div class="col-6 col-md-3"><div class="industry-item card shadow-sm border-0 text-center p-3"><i class="fas fa-chart-bar"></i><span>Finance & Consulting</span></div></div>
-                <div class="col-6 col-md-3"><div class="industry-item card shadow-sm border-0 text-center p-3"><i class="fas fa-glass-cheers"></i><span>Hospitality & Events</span></div></div>
-                <div class="col-6 col-md-3"><div class="industry-item card shadow-sm border-0 text-center p-3"><i class="fas fa-graduation-cap"></i><span>Education & Coaching</span></div></div>
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">Industries We Serve</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Trusted by Large and Small Businesses in
+                        Australia</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card border-0 text-center h-100 modern-card">
+                        <div class="card-body">
+                            <i class="bi bi-shop display-4 text-primary mb-3"></i>
+                            <h5>Retail & eCommerce</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card border-0 text-center h-100 modern-card">
+                        <div class="card-body">
+                            <i class="bi bi-heart-pulse display-4 text-primary mb-3"></i>
+                            <h5>Health & Fitness</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card border-0 text-center h-100 modern-card">
+                        <div class="card-body">
+                            <i class="bi bi-house display-4 text-primary mb-3"></i>
+                            <h5>Real Estate</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card border-0 text-center h-100 modern-card">
+                        <div class="card-body">
+                            <i class="bi bi-tools display-4 text-primary mb-3"></i>
+                            <h5>Construction & Trades</h5>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Carousel Section -->
-    <section class="section" style="background: #f8fafc;">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5 bg-light-custom">
         <div class="container">
-            <h2 class="section-title">What Our Clients Say</h2>
-
-            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="card shadow-sm border-0 p-4 text-center">
-                            <p class="fst-italic fs-5">"Web EASY Experts delivered a flawless service website for us. We saved over 60% compared to local quotes – and got better service."</p>
-                            <div class="mt-3">
-                                <strong class="text-primary">Thiago Bernardez</strong>
-                                <p class="text-muted">Sydney, NSW</p>
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">Testimonials From Australian Clients</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="testimonial-card mx-auto" style="max-width: 600px;">
+                                    <div class="testimonial-avatar">TB</div>
+                                    <div class="stars mb-3">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                    <p class="mb-4">"Great communication, top-notch design, and very affordable. Highly
+                                        recommend to any Australian business!"</p>
+                                    <h5 class="mb-1">Angus Fraser</h5>
+                                    <p class="text-muted">Melbourne</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card shadow-sm border-0 p-4 text-center">
-                            <p class="fst-italic fs-5">"Great communication, top-notch design, and very affordable. Highly recommend to any Australian business!"</p>
-                            <div class="mt-3">
-                                <strong class="text-primary">Angus Fraser</strong>
-                                <p class="text-muted">Melbourne</p>
-                            </div>
-                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
         </div>
     </section>
 
     <!-- Guarantee Section -->
-    <section class="section">
+    <section class="py-5">
         <div class="container">
-            <h2 class="section-title">100% Satisfaction Guarantee</h2>
-            <div class="text-center">
-                <p class="fs-5 mb-4">We back every website with a 100% satisfaction guarantee, revising until you're completely satisfied.</p>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-md-4"><div class="guarantee-point text-center"><i class="fas fa-shield-alt"></i><span>No upfront risk</span></div></div>
-                    <div class="col-md-4"><div class="guarantee-point text-center"><i class="fas fa-ban"></i><span>No hidden charges</span></div></div>
-                    <div class="col-md-4"><div class="guarantee-point text-center"><i class="fas fa-laptop"></i><span>Professional website</span></div></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="fade-up">
+                    <div class="modern-card">
+                        <i class="bi bi-shield-check display-1 text-success mb-4"></i>
+                        <h2 class="mb-4">Get a Website with No Risk to You — 100% Satisfaction Guarantee</h2>
+                        <p class="lead mb-4">We're confident you'll love your new website — and we back it with a 100%
+                            satisfaction guarantee.</p>
+                        <p>At Web EASY Experts, we don't just aim to meet your expectations — we're committed to
+                            exceeding them. If you're not happy with the initial design or direction, we'll revise it
+                            until you're completely satisfied, at no extra cost.</p>
+                        <div class="row mt-4">
+                            <div class="col-md-4">
+                                <span class="badge bg-success fs-6 px-3 py-2">No upfront risk</span>
+                            </div>
+                            <div class="col-md-4">
+                                <span class="badge bg-success fs-6 px-3 py-2">No hidden charges</span>
+                            </div>
+                            <div class="col-md-4">
+                                <span class="badge bg-success fs-6 px-3 py-2">Professional results</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white;" id="contact">
-        <div class="container text-center">
-            <h2 class="section-title" style="color: white;">Get Started with Web EASY Experts</h2>
-            <p class="fs-5 mb-4">Grow your business with a stunning, high-performance website.</p>
-            <a href="#" class="cta-button">Schedule a Free Consultation Today!</a>
+    <!-- Cities We Serve -->
+    <section class="py-5 bg-light-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">Cities We Serve Across Australia</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">From major cities to regional areas
+                        including Tasmania</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="d-flex align-items-center p-3 bg-white rounded-3 shadow-sm">
+                        <i class="bi bi-geo-alt-fill text-primary me-3 fs-4"></i>
+                        <div>
+                            <h6 class="mb-1">Sydney</h6>
+                            <small class="text-muted">New South Wales</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="d-flex align-items-center p-3 bg-white rounded-3 shadow-sm">
+                        <i class="bi bi-geo-alt-fill text-primary me-3 fs-4"></i>
+                        <div>
+                            <h6 class="mb-1">Melbourne</h6>
+                            <small class="text-muted">Victoria</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="d-flex align-items-center p-3 bg-white rounded-3 shadow-sm">
+                        <i class="bi bi-geo-alt-fill text-primary me-3 fs-4"></i>
+                        <div>
+                            <h6 class="mb-1">Brisbane</h6>
+                            <small class="text-muted">Queensland</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="d-flex align-items-center p-3 bg-white rounded-3 shadow-sm">
+                        <i class="bi bi-geo-alt-fill text-primary me-3 fs-4"></i>
+                        <div>
+                            <h6 class="mb-1">Perth</h6>
+                            <small class="text-muted">Western Australia</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="500">
+                    <div class="d-flex align-items-center p-3 bg-white rounded-3 shadow-sm">
+                        <i class="bi bi-geo-alt-fill text-primary me-3 fs-4"></i>
+                        <div>
+                            <h6 class="mb-1">Adelaide</h6>
+                            <small class="text-muted">South Australia</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="600">
+                    <div class="d-flex align-items-center p-3 bg-white rounded-3 shadow-sm">
+                        <i class="bi bi-geo-alt-fill text-primary me-3 fs-4"></i>
+                        <div>
+                            <h6 class="mb-1">Tasmania</h6>
+                            <small class="text-muted">Hobart, Launceston & More</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">Get Started in The Smart Way with Web EASY Experts
+                        Today</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Want to grow your business online with a
+                        stunning, high-performance website?</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="modern-card text-center" data-aos="zoom-in">
+                        <i class="bi bi-telephone-fill display-4 text-primary mb-4"></i>
+                        <h3 class="mb-4">Let's talk with Web EASY Experts</h3>
+                        <p class="mb-4">India based Australia's trusted website design and development agency.</p>
+                        <a href="#" class="btn btn-hero btn-lg">
+                            <i class="bi bi-calendar-check me-2"></i>Schedule a Free Consultation Today!
+                        </a>
+                        <div class="row mt-5">
+                            <div class="col-md-4 mb-3">
+                                <div class="d-flex flex-column align-items-center">
+                                    <i class="bi bi-envelope-fill text-primary fs-3 mb-2"></i>
+                                    <h6>Email Us</h6>
+                                    <small class="text-muted">Quick Response</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="d-flex flex-column align-items-center">
+                                    <i class="bi bi-telephone-fill text-primary fs-3 mb-2"></i>
+                                    <h6>Call Us</h6>
+                                    <small class="text-muted">Direct Support</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="d-flex flex-column align-items-center">
+                                    <i class="bi bi-camera-video-fill text-primary fs-3 mb-2"></i>
+                                    <h6>Video Call</h6>
+                                    <small class="text-muted">Face to Face</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-logo">Web EASY Experts</div>
-            <p class="footer-description">Your trusted partner for professional website design and development across Australia.</p>
-
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#">Website Design</a></li>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>
+                        <i class="bi bi-globe me-2"></i>Web EASY Experts
+                    </h5>
+                    <p class="mb-4">Leading Indian Web Design Company for Australian Businesses. We deliver world-class
+                        websites at competitive prices.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Web Design</a></li>
                         <li><a href="#">Web Development</a></li>
-                        <li><a href="#">E-commerce Solutions</a></li>
+                        <li><a href="#">eCommerce</a></li>
                         <li><a href="#">SEO Services</a></li>
+                        <li><a href="#">Maintenance</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>Technologies</h4>
-                    <ul>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Technologies</h5>
+                    <ul class="list-unstyled">
                         <li><a href="#">WordPress</a></li>
                         <li><a href="#">Shopify</a></li>
                         <li><a href="#">ReactJS</a></li>
                         <li><a href="#">Laravel</a></li>
+                        <li><a href="#">PHP</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> info@webeasyexperts.com</li>
-                        <li><i class="fas fa-phone"></i> +91 XXXX XXXXXX</li>
-                        <li><i class="fas fa-map-marker-alt"></i> India</li>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Industries</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Retail</a></li>
+                        <li><a href="#">Healthcare</a></li>
+                        <li><a href="#">Real Estate</a></li>
+                        <li><a href="#">Construction</a></li>
+                        <li><a href="#">Finance</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Blog</a></li>
                     </ul>
                 </div>
             </div>
-
-            <div class="footer-social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-
-            <div class="footer-bottom">
-                <p>© 2025 Web EASY Experts. All rights reserved.</p>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Web EASY Experts. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#" class="me-3">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS and Popper.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
-    <!-- Minimal Custom JS -->
-    <script defer>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
 
-        document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('click', function (e) {
-                if (this.getAttribute('href') === '#contact') {
-                    e.preventDefault();
-                    alert('Contact form would open here. Replace with your actual contact mechanism.');
-                }
-            });
+        // Auto-advance testimonial carousel
+        const testimonialCarousel = new bootstrap.Carousel(document.getElementById('testimonialCarousel'), {
+            interval: 5000,
+            wrap: true
         });
     </script>
 </body>
