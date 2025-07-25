@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web EASY Experts – Leading Indian Web Design Company for Australian Businesses</title>
+    <title>Web EASY Experts - Leading Indian Web Design Company for Australian Businesses</title>
     <meta name="description"
         content="Web EASY Experts - Trusted web design and development company for Australian businesses. Get world-class websites at competitive prices.">
 
@@ -187,7 +187,7 @@
             color: white;
         }
 
-        /* ===== CARD STYLES ===== */
+        /* ===== WHY CHOOSE US SECTION STYLES ===== */
         .modern-card {
             background: white;
             border-radius: 20px;
@@ -282,6 +282,14 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
+        .timeline-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
         /* ===== PARALLAX SECTION STYLES ===== */
         .parallax-section {
             background-attachment: fixed;
@@ -320,6 +328,12 @@
             padding: 2rem;
             margin: 1rem 0;
         }
+
+        /* ===== SERVICES SECTION STYLES ===== */
+        /* No additional styles needed - using existing modern-card */
+
+        /* ===== INDUSTRIES SECTION STYLES ===== */
+        /* No additional styles needed - using existing modern-card */
 
         /* ===== TESTIMONIALS SECTION STYLES ===== */
         .testimonial-card {
@@ -370,6 +384,9 @@
             position: relative;
             z-index: 2;
         }
+
+        /* ===== CITIES SECTION STYLES ===== */
+        /* No additional styles needed - using existing utilities */
 
         /* ===== CONTACT SECTION STYLES ===== */
         .contact-bg {
@@ -470,6 +487,22 @@
                 font-size: 1.5rem;
             }
         }
+
+        /* ===== PRICING STYLES ===== */
+        .pricing-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary-color);
+        }
     </style>
 </head>
 
@@ -510,17 +543,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 hero-content" data-aos="fade-right">
-                    <span class="custom-badge mb-3 d-inline-block">Leading Indian Web Design Company for Australian
-                        Businesses</span>
-                    <h1 class="hero-title">Web EASY Experts</h1>
-                    <p class="hero-subtitle">Welcome to Web EASY Experts, your trusted one of leading company for
-                        website design and development in Australia. We are an India-based agency known for delivering
-                        world-class websites at highly competitive prices to businesses all across Australia.</p>
-                    <p class="hero-subtitle">With years of experience and a deep understanding of the Australian market,
-                        we help local brands build visually stunning, fast, and SEO-optimized websites that generate
-                        real results.</p>
+                    <span class="custom-badge mb-3 d-inline-block">Leading Indian Web Design Company</span>
+                    <h1 class="hero-title">Web Design & Development for Australian Businesses</h1>
+                    <p class="hero-subtitle">We are an India-based agency known for delivering world-class websites at
+                        highly competitive prices to businesses all across Australia.</p>
                     <a href="#contact" class="btn btn-hero">
-                        <i class="bi bi-rocket-takeoff me-2"></i>Schedule a Free Consultation Today!
+                        <i class="bi bi-rocket-takeoff me-2"></i>Get Started Today
                     </a>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
@@ -538,8 +566,8 @@
                 <div class="col-12 text-center mb-5">
                     <h2 class="section-title" data-aos="fade-up">Why We're the Best Website Design & Development Company
                         in Australia</h2>
-                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Choosing Web EASY Experts means choosing:
-                    </p>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Choosing Web EASY Experts means choosing
+                        excellence, affordability, and results.</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -602,15 +630,6 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt-4">
-                <div class="col-12 text-center">
-                    <div class="modern-card">
-                        <h4 class="text-primary-custom mb-3">No Cost For Minor Changes</h4>
-                        <p>Small tweaks and adjustments are included at no extra charge, offering flexibility without
-                            added expense.</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -621,7 +640,7 @@
                 <div class="col-12 text-center mb-5">
                     <h2 class="section-title" data-aos="fade-up">Our Web Design & Development Process</h2>
                     <p class="lead" data-aos="fade-up" data-aos-delay="100">We follow research and development process
-                        to ensure smooth project execution and outstanding results:</p>
+                        to ensure smooth project execution and outstanding results</p>
                 </div>
             </div>
             <div class="row align-items-center">
@@ -634,7 +653,9 @@
                         <li>
                             <div class="timeline-badge"></div>
                             <div class="timeline-panel">
-                                <h4>1. Discovery & Consultation</h4>
+                                <img src="https://picsum.photos/80/80?random=discovery" alt="Discovery"
+                                    class="timeline-image">
+                                <h4>Discovery & Consultation</h4>
                                 <p>We start by understanding your goals, business type, competitors, and target audience
                                     in Australia.</p>
                             </div>
@@ -642,7 +663,9 @@
                         <li>
                             <div class="timeline-badge"></div>
                             <div class="timeline-panel">
-                                <h4>2. Wireframing & Design Concepts</h4>
+                                <img src="https://picsum.photos/80/80?random=design" alt="Wireframing"
+                                    class="timeline-image">
+                                <h4>Wireframing & Design Concepts</h4>
                                 <p>Our website designers' team creates layout ideas and mockups, keeping Australian UX
                                     best practices and mobile responsiveness in mind.</p>
                             </div>
@@ -650,7 +673,9 @@
                         <li>
                             <div class="timeline-badge"></div>
                             <div class="timeline-panel">
-                                <h4>3. Development Phase</h4>
+                                <img src="https://picsum.photos/80/80?random=development" alt="Development"
+                                    class="timeline-image">
+                                <h4>Development Phase</h4>
                                 <p>Our expert web developers' team build your website using clean code, with full
                                     integration of CMS or eCommerce platforms as needed.</p>
                             </div>
@@ -658,7 +683,9 @@
                         <li>
                             <div class="timeline-badge"></div>
                             <div class="timeline-panel">
-                                <h4>4. Quality Testing & Optimization</h4>
+                                <img src="https://picsum.photos/80/80?random=testing" alt="Testing"
+                                    class="timeline-image">
+                                <h4>Quality Testing & Optimization</h4>
                                 <p>We test across devices and browsers, optimize page speed, and make sure everything
                                     works perfectly before launch.</p>
                             </div>
@@ -666,7 +693,9 @@
                         <li>
                             <div class="timeline-badge"></div>
                             <div class="timeline-panel">
-                                <h4>5. Launch & Ongoing Support</h4>
+                                <img src="https://picsum.photos/80/80?random=launch" alt="Launch"
+                                    class="timeline-image">
+                                <h4>Launch & Ongoing Support</h4>
                                 <p>Once approved, we launch your site and offer continued support, maintenance, and
                                     updates as your business grows.</p>
                             </div>
@@ -688,8 +717,7 @@
                         <p class="mb-4">Website development in Australia typically ranges from AUD 3,000 to AUD 15,000+
                             depending on the complexity. At Web EASY Experts, you get the same quality starting from a
                             lower budget – thanks to our India-based efficiency and low overheads.</p>
-                        <span class="badge bg-warning text-dark fs-6 px-3 py-2">We offer fixed-cost packages and custom
-                            pricing for startups, SMEs, and large enterprises.</span>
+                        <span class="badge bg-warning text-dark fs-6 px-3 py-2">Fixed-cost packages available</span>
                     </div>
                 </div>
             </div>
@@ -701,9 +729,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center mb-5">
-                    <h2 class="section-title" data-aos="fade-up">Our Top Level Web Design Services in Australia – Built
-                        for Impact</h2>
-                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Each site we design includes:</p>
+                    <h2 class="section-title" data-aos="fade-up">Our Top Level Web Design Services in Australia</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Built for Impact across all major cities</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -728,32 +755,216 @@
                     <div class="modern-card h-100">
                         <h4 class="text-primary-custom mb-3">
                             <i class="bi bi-code-slash me-2"></i>
-                            Web Development in Australia – Powered by India's Top Talent
+                            Technologies We Use
                         </h4>
-                        <p>From static sites to large-scale web applications, we deliver high-performance websites that
-                            support business growth. Our developers are fluent in:</p>
                         <div class="row">
                             <div class="col-6">
-                                <span class="badge bg-primary mb-2 me-1">HTML5, CSS3, JS</span>
-                                <span class="badge bg-primary mb-2 me-1">WordPress, WooCommerce</span>
-                                <span class="badge bg-primary mb-2 me-1">Shopify, Magento, Wix</span>
+                                <span class="badge bg-primary mb-2 me-1">HTML5</span>
+                                <span class="badge bg-primary mb-2 me-1">CSS3</span>
+                                <span class="badge bg-primary mb-2 me-1">JavaScript</span>
+                                <span class="badge bg-primary mb-2 me-1">WordPress</span>
+                                <span class="badge bg-primary mb-2 me-1">Shopify</span>
                             </div>
                             <div class="col-6">
-                                <span class="badge bg-secondary mb-2 me-1">ReactJS, Angular, Node.js</span>
-                                <span class="badge bg-secondary mb-2 me-1">PHP, Laravel, MySQL</span>
-                                <span class="badge bg-secondary mb-2 me-1">API Integrations & More</span>
+                                <span class="badge bg-secondary mb-2 me-1">ReactJS</span>
+                                <span class="badge bg-secondary mb-2 me-1">Laravel</span>
+                                <span class="badge bg-secondary mb-2 me-1">PHP</span>
+                                <span class="badge bg-secondary mb-2 me-1">MySQL</span>
+                                <span class="badge bg-secondary mb-2 me-1">Node.js</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="row mt-5">
-                <div class="col-12 text-center mb-4">
-                    <h3 class="text-primary-custom">Looking for a Web Designer in Australia?</h3>
-                    <p class="lead">Get the same quality and creativity you'd expect from a local web designer in
-                        Australia, without the inflated cost. Our remote team works on your schedule, offers regular
-                        Zoom/Meet consultations, and delivers on time.</p>
+    <!-- ===== INDUSTRIES SECTION ===== -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">Industries We Serve</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Trusted by Large and Small Businesses in
+                        Australia</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-shop"></i>
+                        </div>
+                        <h5>E-commerce & Retail</h5>
+                        <p>Online stores, product catalogs, and shopping platforms.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-heart-pulse"></i>
+                        </div>
+                        <h5>Healthcare</h5>
+                        <p>Medical practices, clinics, and health service providers.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <h5>Real Estate</h5>
+                        <p>Property listings, agents, and real estate companies.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-briefcase"></i>
+                        </div>
+                        <h5>Professional Services</h5>
+                        <p>Law firms, consulting, accounting, and business services.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-mortarboard"></i>
+                        </div>
+                        <h5>Education</h5>
+                        <p>Schools, universities, training centers, and online courses.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-camera"></i>
+                        </div>
+                        <h5>Creative & Media</h5>
+                        <p>Photography, design studios, and media companies.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-tools"></i>
+                        </div>
+                        <h5>Manufacturing</h5>
+                        <p>Industrial companies, suppliers, and B2B services.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="800">
+                    <div class="modern-card text-center">
+                        <div class="card-icon mx-auto">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h5>Logistics & Transport</h5>
+                        <p>Shipping, delivery, and transportation services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS SECTION ===== -->
+    <section id="testimonials" class="py-5 bg-light-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">What Our Australian Clients Say</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Real feedback from real businesses</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">SM</div>
+                        <div class="stars mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p>"Web EASY Experts delivered exactly what we needed for our Melbourne-based retail business.
+                            The website is fast, mobile-friendly, and has increased our online sales by 40%."</p>
+                        <h6 class="mt-3">Sarah Mitchell</h6>
+                        <small class="text-muted">Retail Business Owner, Melbourne</small>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">DW</div>
+                        <div class="stars mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p>"Outstanding service! They understood our Brisbane market perfectly and created a
+                            professional website that represents our law firm excellently. Great communication
+                            throughout."</p>
+                        <h6 class="mt-3">David Wilson</h6>
+                        <small class="text-muted">Law Firm Partner, Brisbane</small>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">LT</div>
+                        <div class="stars mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p>"The cost savings were incredible compared to local Sydney agencies, but the quality was even
+                            better than expected. Highly recommend for any Australian business."</p>
+                        <h6 class="mt-3">Lisa Thompson</h6>
+                        <small class="text-muted">Marketing Director, Sydney</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GUARANTEE SECTION ===== -->
+    <section class="py-5 guarantee-bg">
+        <div class="guarantee-overlay"></div>
+        <div class="container guarantee-content">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="zoom-in">
+                    <h2 class="section-title">Our 100% Satisfaction Guarantee</h2>
+                    <div class="row g-4 mt-4">
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="card-icon mx-auto mb-3">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <h5>Money Back Guarantee</h5>
+                                <p>If you're not completely satisfied, we'll refund your investment.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="card-icon mx-auto mb-3">
+                                    <i class="bi bi-clock"></i>
+                                </div>
+                                <h5>On-Time Delivery</h5>
+                                <p>We stick to deadlines and deliver your project when promised.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="card-icon mx-auto mb-3">
+                                    <i class="bi bi-headset"></i>
+                                </div>
+                                <h5>Ongoing Support</h5>
+                                <p>Free support and maintenance for the first 30 days after launch.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -810,7 +1021,7 @@
         </div>
     </section>
 
-
+ 
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
