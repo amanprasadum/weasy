@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web EASY Experts - Leading Indian Web Design Company for Australian Businesses. Professional website design & development at competitive prices. Serving Sydney, Melbourne, Brisbane & all Australia.">
+    <title>Web EASY Experts – Leading Indian Web Design Company for Australian Businesses</title>
+    
+    <!-- Critical CSS - Inline for Performance -->
+    <style>
+        /* Critical CSS for above-the-fold content */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; 
+            color: #2c3e50;
+            background: #ffffff;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover { color: #64b5f6; }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .cta-button:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #5a6c7d;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+    
+    <!-- Preload non-critical CSS -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="/" class="logo">Web EASY Experts</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Leading Indian Web Design Company for Australian Businesses</h1>
+            <p>Welcome to Web EASY Experts, your trusted one of leading company for website design and development in Australia. We are an India-based agency known for delivering world-class websites at highly competitive prices to businesses all across Australia.</p>
+            <a href="#contact" class="cta-button">Schedule Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section" style="background: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title">Why We're the Best Website Design & Development Company in Australia</h2>
+            <p class="section-subtitle">Choosing Web EASY Experts means choosing excellence, affordability, and results-driven solutions.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-target"></i>
+                    </div>
+                    <h3>Australian-Focused Strategy</h3>
+                    <p>We build for your audience. All designs are tailored for Australian industries and users.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Platform-Specific Teams</h3>
+                    <p>WordPress, Shopify, Laravel, ReactJS, or custom PHP – we assign dedicated developers for each platform.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Affordable Development</h3>
+                    <p>Our India-based pricing means massive cost savings for you, without cutting corners on quality.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Result-Driven Approach</h3>
+                    <p>From web design-development to SEO, we focus on achieving your business goals.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Transparent Communication</h3>
+                    <p>You'll get regular updates, clear timelines, and easy collaboration tools for hassle-free project delivery.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Nominal Maintenance Cost</h3>
+                    <p>Enjoy long-term durability with minimal upkeep expenses, keeping your project cost-efficient.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section" id="process">
+        <div class="container">
+            <h2 class="section-title">Our Web Design & Development Process</h2>
+            <p class="section-subtitle">We follow research and development process to ensure smooth project execution and outstanding results:</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery & Consultation</h3>
+                    <p>We start by understanding your goals, business type, competitors, and target audience in Australia.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Wireframing & Design Concepts</h3>
+                    <p>Our website designers' team creates layout ideas and mockups, keeping Australian UX best practices and mobile responsiveness in mind.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Development Phase</h3>
+                    <p>Our expert web developers' team build your website using clean code, with full integration of CMS or eCommerce platforms as needed.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Quality Testing & Optimization</h3>
+                    <p>We test across devices and browsers, optimize page speed, and make sure everything works perfectly before launch.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Launch & Ongoing Support</h3>
+                    <p>Once approved, we launch your site and offer continued support, maintenance, and updates as your business grows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing" style="background: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title">Cost of Website Development in Australia — Save with Web EASY Experts</h2>
+            <p class="section-subtitle">Website development in Australia typically ranges from AUD 3,000 to AUD 15,000+ depending on the complexity. At Web EASY Experts, you get the same quality starting from a lower budget – thanks to our India-based efficiency and low overheads.</p>
+            <p style="text-align: center; font-size: 1.1rem; margin-top: 2rem;">We offer fixed-cost packages and custom pricing for startups, SMEs, and large enterprises.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Top Level Web Design Services in Australia – Built for Impact</h2>
+            
+            <div class="services-content">
+                <div class="cities-section">
+                    <h3>We serve all major cities including:</h3>
+                    <div class="cities-grid">
+                        <span class="city">Sydney</span>
+                        <span class="city">Melbourne</span>
+                        <span class="city">Brisbane</span>
+                        <span class="city">Perth</span>
+                        <span class="city">Adelaide</span>
+                        <span class="city">Canberra</span>
+                        <span class="city">Gold Coast</span>
+                        <span class="city">Sunshine Coast</span>
+                        <span class="city">Darwin</span>
+                        <span class="city">Alice Springs</span>
+                    </div>
+                </div>
+                
+                <div class="tasmania-section">
+                    <h3>Tasmania – We Serve Local Businesses Too</h3>
+                    <p>At Web EASY Experts, we're proud to support businesses not just in mainland cities, but also in Tasmania — including Hobart, Launceston, Devonport, and nearby towns.</p>
+                    <p>Whether you're a tourism operator, café owner, tradesperson, or creative agency in Tasmania, we deliver affordable, professionally built websites tailored to your local audience and business goals.</p>
+                    
+                    <div class="tasmania-features">
+                        <div class="tas-feature">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Fast-loading websites optimized for local Tasmanian search</span>
+                        </div>
+                        <div class="tas-feature">
+                            <i class="fas fa-industry"></i>
+                            <span>Industry-specific designs for retail, tourism, trades, and more</span>
+                        </div>
+                        <div class="tas-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Localized support hours & quick turnaround</span>
+                        </div>
+                        <div class="tas-feature">
+                            <i class="fas fa-piggy-bank"></i>
+                            <span>Affordable pricing for regional startups and growing businesses</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="website-features">
+                    <h3>Each site we design includes:</h3>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Mobile Responsive First Layout</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Clean & Modern UI/UX</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Fast Load Speed</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>SEO Friendly Structure</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Easy Content Management System</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="section" style="background: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title">Web Development in Australia – Powered by India's Top Talent</h2>
+            <p class="section-subtitle">From static sites to large-scale web applications, we deliver high-performance websites that support business growth. Our developers are fluent in:</p>
+            
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h4>Frontend Technologies</h4>
+                    <div class="tech-items">
+                        <span class="tech-item">HTML5</span>
+                        <span class="tech-item">CSS3</span>
+                        <span class="tech-item">JavaScript</span>
+                        <span class="tech-item">ReactJS</span>
+                        <span class="tech-item">Angular</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h4>CMS & E-commerce</h4>
+                    <div class="tech-items">
+                        <span class="tech-item">WordPress</span>
+                        <span class="tech-item">WooCommerce</span>
+                        <span class="tech-item">Shopify</span>
+                        <span class="tech-item">Magento</span>
+                        <span class="tech-item">Wix</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h4>Backend & Database</h4>
+                    <div class="tech-items">
+                        <span class="tech-item">PHP</span>
+                        <span class="tech-item">Laravel</span>
+                        <span class="tech-item">Node.js</span>
+                        <span class="tech-item">MySQL</span>
+                        <span class="tech-item">API Integrations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Trusted by Large and Small Businesses in Australia</h2>
+            <p class="section-subtitle">We proudly serve startups, SMEs, and enterprises across industries:</p>
+            
+            <div class="industries-grid">
+                <div class="industry-item">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Retail & eCommerce</span>
+                </div>
+                <div class="industry-item">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Health & Fitness</span>
+                </div>
+                <div class="industry-item">
+                    <i class="fas fa-home"></i>
+                    <span>Real Estate</span>
+                </div>
+                <div class="industry-item">
+                    <i class="fas fa-hard-hat"></i>
+                    <span>Construction & Trades</span>
+                </div>
+                <div class="industry-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Finance & Consulting</span>
+                </div>
+                <div class="industry-item">
+                    <i class="fas fa-glass-cheers"></i>
+                    <span>Hospitality & Events</span>
+                </div>
+                <div class="industry-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Education & Coaching</span>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 3rem; font-size: 1.1rem;">From one-man operations to large enterprises, our team of the best website designers and developers ensures that each project receives expert care and accuracy.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" style="background: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title">Testimonials From Australian Clients</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Web EASY Experts delivered a flawless service website for us. We saved over 60% compared to local quotes – and got better service."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Thiago Bernardez</strong>
+                        <span>Sydney, NSW</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Great communication, top-notch design, and very affordable. Highly recommend to any Australian business!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Angus Fraser</strong>
+                        <span>Melbourne</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Get a Website with No Risk to You — 100% Satisfaction Guarantee</h2>
+            <div class="guarantee-content">
+                <p>We're confident you'll love your new website — and we back it with a 100% satisfaction guarantee.</p>
+                <p>At Web EASY Experts, we don't just aim to meet your expectations — we're committed to exceeding them. If you're not happy with the initial design or direction, we'll revise it until you're completely satisfied, at no extra cost.</p>
+                <div class="guarantee-points">
+                    <div class="guarantee-point">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>No upfront risk</span>
+                    </div>
+                    <div class="guarantee-point">
+                        <i class="fas fa-ban"></i>
+                        <span>No hidden charges</span>
+                    </div>
+                    <div class="guarantee-point">
+                        <i class="fas fa-laptop"></i>
+                        <span>Professional website that works</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white;" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2 style="color: white; margin-bottom: 1rem;">Get Started in The Smart Way with Web EASY Experts Today</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Want to grow your business online with a stunning, high-performance website?</p>
+                <p style="font-size: 1.1rem; margin-bottom: 3rem;">Let's talk with Web EASY Experts, India based Australia's trusted website design and development agency.</p>
+                <a href="#" class="cta-button" style="background: #ff6b35;">Schedule a Free Consultation Today!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Non-critical CSS loaded asynchronously -->
+    <style>
+        /* Non-critical styles loaded after initial render */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .process-steps {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .process-step {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .process-step h3 {
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .city {
+            background: #1e3c72;
+            color: white;
+            padding: 0.8rem 1rem;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .tasmania-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .tasmania-features {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .tas-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .tas-feature i {
+            color: #ff6b35;
+            font-size: 1.2rem;
+            width: 20px;
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .feature-item i {
+            color: #10b981;
+            font-size: 1.2rem;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .tech-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .tech-category h4 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .tech-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .tech-item {
+            background: #e8f4fd;
+            color: #1e3c72;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .industry-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .industry-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .industry-item i {
+            font-size: 2rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .testimonial-content p {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .testimonial-author strong {
+            color: #1e3c72;
+            margin-bottom: 0.3rem;
+        }
+        
+        .testimonial-author span {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        
+        .guarantee-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .guarantee-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+        }
+        
+        .guarantee-points {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .guarantee-point {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .guarantee-point i {
+            font-size: 2rem;
+            color: #10b981;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Mobile Responsive Enhancements */
+        @media (max-width: 768px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .process-step { flex-direction: column; gap: 1rem; }
+            .cities-grid { grid-template-columns: repeat(2, 1fr); }
+            .tech-grid { grid-template-columns: 1fr; }
+            .industries-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .guarantee-points { flex-direction: column; gap: 2rem; }
+            .nav-menu { 
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1e3c72;
+                flex-direction: column;
+                padding: 1rem 0;
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.8rem; }
+            .cities-grid { grid-template-columns: 1fr; }
+            .industries-grid { grid-template-columns: 1fr; }
+            .feature-card, .process-step, .testimonial { padding: 1.5rem; }
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer style="background: #1e3c72; color: white; padding: 3rem 0 2rem; text-align: center;">
+        <div class="container">
+            <div style="margin-bottom: 2rem;">
+                <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Web EASY Experts</h3>
+                <p style="max-width: 600px; margin: 0 auto; opacity: 0.9;">Your trusted partner for professional website design and development across Australia. Quality websites at competitive prices.</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; text-align: left;">
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: #64b5f6;">Services</h4>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li><a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">Website Design</a></li>
+                        <li><a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">Web Development</a></li>
+                        <li><a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">E-commerce Solutions</a></li>
+                        <li><a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">SEO Services</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: #64b5f6;">Technologies</h4>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li><a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">WordPress</a></li>
+                        <li><a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">Shopify</a></li>
+                        <li><a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">ReactJS</a></li>
+                        <li><a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">Laravel</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: #64b5f6;">Contact Info</h4>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li style="color: rgba(255,255,255,0.8);"><i class="fas fa-envelope"></i> info@webeasyexperts.com</li>
+                        <li style="color: rgba(255,255,255,0.8);"><i class="fas fa-phone"></i> +91 XXXX XXXXXX</li>
+                        <li style="color: rgba(255,255,255,0.8);"><i class="fas fa-map-marker-alt"></i> India</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; text-align: center;">
+                <p style="opacity: 0.8; margin: 0;">&copy; 2025 Web EASY Experts. All rights reserved. | Serving Australian businesses with world-class web solutions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Performance optimized JavaScript - deferred -->
+    <script defer>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation to CTA buttons
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#' || this.getAttribute('href') === '#contact') {
+                    e.preventDefault();
+                    // Here you would typically open a contact form or redirect to contact page
+                    alert('Contact form would open here. Replace with your actual contact mechanism.');
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply fade-in effect to sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                if (index > 0) { // Skip hero section
+                    section.style.opacity = '0';
+                    section.style.transform = 'translateY(20px)';
+                    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    observer.observe(section);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
