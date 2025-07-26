@@ -907,298 +907,6 @@
                 right: 10%;
             }
         } */
-        /* ==================== MODERN GUARANTEE SECTION ==================== */
-        .guarantee-section {
-            padding: 120px 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Subtle Background Pattern */
-        .guarantee-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a365d' fill-opacity='0.02'%3E%3Cpath d='M0 0h80v80H0V0zm20 20v40h40V20H20zm20 35a15 15 0 1 1 0-30 15 15 0 0 1 0 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
-        }
-
-        .guarantee-container {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        /* Guarantee Image Styling */
-        .guarantee-image {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 2rem;
-            background: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 15px 35px rgba(26, 54, 93, 0.1);
-            border: 4px solid #38a169;
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .guarantee-image::before {
-            content: '';
-            position: absolute;
-            inset: -8px;
-            background: linear-gradient(45deg, #38a169, #48bb78, #68d391);
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0.3;
-            animation: rotate 10s linear infinite;
-        }
-
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .guarantee-image img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-        }
-
-        /* Main Title */
-        .guarantee-title {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            line-height: 1.2;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .guarantee-title::after {
-            content: '';
-            display: block;
-            width: 120px;
-            height: 4px;
-            background: linear-gradient(90deg, #38a169, #48bb78);
-            margin: 1.5rem auto 0;
-            border-radius: 2px;
-        }
-
-        /* Lead Paragraph */
-        .guarantee-lead {
-            font-size: 1.3rem;
-            color: var(--text-light);
-            font-weight: 600;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        /* Content Paragraphs */
-        .guarantee-content {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 3rem 2.5rem;
-            margin: 2rem 0;
-            box-shadow: 0 10px 30px rgba(26, 54, 93, 0.08);
-            border: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .guarantee-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #3182ce, #4299e1);
-            border-radius: 0 0 20px 20px;
-        }
-
-        .guarantee-text {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .guarantee-text:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Highlight Box */
-        .guarantee-highlight {
-            background: linear-gradient(135deg, rgba(56, 161, 105, 0.05), rgba(72, 187, 120, 0.05));
-            border: 2px solid #38a169;
-            border-radius: 16px;
-            padding: 2rem;
-            margin-top: 2.5rem;
-            position: relative;
-            overflow: hidden;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .guarantee-highlight::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(56, 161, 105, 0.1), transparent);
-            animation: shimmer 3s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0% {
-                left: -100%;
-            }
-
-            100% {
-                left: 100%;
-            }
-        }
-
-        /* Features List */
-        .guarantee-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature-item {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(26, 54, 93, 0.08);
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(26, 54, 93, 0.12);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #38a169, #48bb78);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            color: var(--white);
-            font-size: 1.5rem;
-        }
-
-        .feature-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-desc {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            line-height: 1.5;
-        }
-
-        /* Call to Action */
-        .guarantee-cta {
-            margin-top: 3rem;
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, #38a169, #48bb78);
-            border: none;
-            color: var(--white);
-            font-weight: 700;
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(56, 161, 105, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(56, 161, 105, 0.4);
-            color: var(--white);
-            text-decoration: none;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .guarantee-section {
-                padding: 80px 0;
-            }
-
-            .guarantee-title {
-                font-size: 2.2rem;
-            }
-
-            .guarantee-lead {
-                font-size: 1.1rem;
-            }
-
-            .guarantee-content {
-                padding: 2rem 1.5rem;
-            }
-
-            .guarantee-features {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .guarantee-image {
-                width: 100px;
-                height: 100px;
-            }
-
-            .guarantee-image img {
-                width: 60px;
-                height: 60px;
-            }
-        }
 
         /* ==================== PRICING SECTION ==================== */
         .pricing-section {
@@ -1264,7 +972,6 @@
             box-shadow: var(--shadow-light);
             margin: 0;
         }
-
         .service-item {
             background: var(--white);
             padding: 1.5rem;
@@ -1313,13 +1020,12 @@
             color: var(--primary-color);
         }
 
-        .feature-card p {
-            color: var(--text-light);
-            line-height: 1.7;
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-
+       .feature-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
         .feature-card ul li {
             color: var(--text-light);
             margin-bottom: 0.8rem;
@@ -2402,7 +2108,8 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="image-container">
-                        <img src="./assets/images/work.jpg" alt="Australia Services" class="img-fluid">
+                        <img src="./assets/images/work.jpg"
+                            alt="Australia Services" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -2488,7 +2195,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="assets/images/image.png" alt="Web Development" class="img-fluid rounded">
+                    <img src="assets/images/image.png"
+                        alt="Web Development" class="img-fluid rounded">
                     <!-- <img src="https://placehold.co/500x400/cbcbcb/2b2b2b?text=Web+Development+Technologies"
                         alt="Web Development" class="img-fluid rounded"> -->
                 </div>
@@ -2544,7 +2252,8 @@
                 <div class="col-lg-6">
                     <!-- <img src="https://placehold.co/500x350/cbcbcb/2b2b2b?text=Industries+We+Serve" alt="Industries"
                         class="img-fluid rounded"> -->
-                    <img src="./assets/images/9859.jpg" alt="Industries" class="img-fluid rounded">
+                    <img src="./assets/images/9859.jpg" alt="Industries"
+                        class="img-fluid rounded">
                 </div>
             </div>
             <div class="row mt-4">
@@ -2586,12 +2295,12 @@
     </section>
 
     <!-- ==================== GUARANTEE SECTION ==================== -->
-    <!-- <section class="process-section">
+    <section class="process-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <img src="./assets/images/100per.png" alt="Satisfaction Guarantee" class="img-fluid mb-4"
-                        style="max-width: 50%;">
+                    <img src="./assets/images/100per.png"
+                        alt="Satisfaction Guarantee" class="img-fluid mb-4" style="max-width: 50%;">
                     <h2 class="section-title">Get a Website with No Risk to You — 100% Satisfaction Guarantee</h2>
                     <p class="lead mb-4">We're confident you'll love your new website — and we back it with a 100%
                         satisfaction guarantee.</p>
@@ -2600,74 +2309,6 @@
                         completely satisfied, at no extra cost.</p>
                     <p class="text-primary-custom font-weight-bold">No upfront risk. No hidden charges. Just a
                         professionally built website that works for your business.</p>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <section class="guarantee-section">
-        <div class="container">
-            <div class="guarantee-container">
-                <!-- Animated Guarantee Badge -->
-                <div class="guarantee-image">
-                    <img src="./assets/images/100per.png" alt="100% Satisfaction Guarantee">
-                </div>
-
-                <!-- Main Title -->
-                <h2 class="guarantee-title">Get a Website with No Risk to You — 100% Satisfaction Guarantee</h2>
-
-                <!-- Lead Statement -->
-                <p class="guarantee-lead">We're confident you'll love your new website — and we back it with a 100%
-                    satisfaction guarantee.</p>
-
-                <!-- Main Content Card -->
-                <div class="guarantee-content">
-                    <p class="guarantee-text">At Web EASY Experts, we don't just aim to meet your expectations — we're
-                        committed to exceeding them. If you're not happy with the initial design or direction, we'll
-                        revise it until you're completely satisfied, at no extra cost.</p>
-                </div>
-
-                <!-- Highlight Promise -->
-                <div class="guarantee-highlight">
-                    <i class="fas fa-shield-alt" style="margin-right: 0.5rem; color: #38a169;"></i>
-                    No upfront risk. No hidden charges. Just a professionally built website that works for your
-                    business.
-                </div>
-
-                <!-- Features Grid -->
-                <div class="guarantee-features">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-undo-alt"></i>
-                        </div>
-                        <h4 class="feature-title">Unlimited Revisions</h4>
-                        <p class="feature-desc">We'll keep refining your design until it's exactly what you envisioned
-                        </p>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-dollar-sign"></i>
-                        </div>
-                        <h4 class="feature-title">No Hidden Costs</h4>
-                        <p class="feature-desc">Transparent pricing with no surprise charges or additional fees</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h4 class="feature-title">Quick Turnaround</h4>
-                        <p class="feature-desc">Fast delivery without compromising on quality or attention to detail</p>
-                    </div>
-                </div>
-
-                <!-- Call to Action -->
-                <div class="guarantee-cta">
-                    <a href="#contact" class="cta-button">
-                        <i class="fas fa-rocket"></i>
-                        Start Your Risk-Free Project
-                    </a>
                 </div>
             </div>
         </div>
