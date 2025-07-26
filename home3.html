@@ -18,13 +18,32 @@
 
     <style>
         /* ==================== ROOT VARIABLES ==================== */
-        :root {
+        /* :root {
             --primary-color: #112D4E;
             --secondary-color: #3F72AF;
             --light-gray: #f2f2f2;
             --white: #ffffff;
             --text-dark: #112D4E;
             --text-light: #666666;
+        } */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #06b6d4;
+            --success-color: #10b981;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --light-gray: #f8fafc;
+            --lighter-gray: #f1f5f9;
+            --white: #ffffff;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --text-muted: #94a3b8;
+            --border-color: #e2e8f0;
+            --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-heavy: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
         /* ==================== GLOBAL STYLES ==================== */
@@ -466,25 +485,351 @@
         }
 
         /* ==================== SERVICES SECTION ==================== */
+        /* ==================== ENHANCED SERVICES SECTION ==================== */
         .services-section {
-            padding: 100px 0;
-            background: var(--light-gray);
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%232563eb' fill-opacity='0.02'%3E%3Cpath d='M50 50c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10zm-20 0c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        /* ==================== CITY SERVICES GRID ==================== */
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
         }
 
         .service-item {
             background: var(--white);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--primary-color);
-            transition: all 0.3s ease;
-            font-weight: 500;
+            padding: 1.8rem 1.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            text-align: center;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: left;
+        }
+
+        .service-item::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s ease;
+            z-index: 0;
+        }
+
+        .service-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-item:hover::after {
+            width: 300px;
+            height: 300px;
         }
 
         .service-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 25px rgba(43, 43, 43, 0.1);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--primary-color);
         }
+
+        .service-item:hover {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ==================== IMAGE CONTAINER ==================== */
+        .image-container {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            transition: all 0.4s ease;
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            z-index: 1;
+            transition: opacity 0.4s ease;
+        }
+
+        .image-container:hover::before {
+            opacity: 0.3;
+        }
+
+        .image-container:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.4s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ==================== FEATURE CARD ==================== */
+        .feature-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-accent);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .feature-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card ul li {
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .feature-card ul li i {
+            color: var(--success-color);
+            font-size: 1.1rem;
+        }
+
+        /* ==================== FEATURES GRID ==================== */
+        .features-container {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        .features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-icon-container {
+            text-align: center;
+            transition: all 0.4s ease;
+            padding: 1rem;
+            border-radius: 16px;
+        }
+
+        .feature-icon-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .feature-icon::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-icon-container:hover .feature-icon::after {
+            opacity: 1;
+            animation: pulse 2s infinite;
+        }
+
+        .feature-icon i {
+            color: var(--white);
+            font-size: 1.8rem;
+        }
+
+        .feature-icon-container p {
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.3;
+            }
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 992px) {
+            .services-section {
+                padding: 80px 0;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .feature-card {
+                padding: 2rem;
+            }
+
+            .features-container {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+            .cities-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .service-item {
+                padding: 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .feature-icon i {
+                font-size: 1.4rem;
+            }
+        }
+
 
         /* ==================== TESTIMONIALS SECTION ==================== */
         .testimonials-section {
@@ -952,33 +1297,32 @@
     </section>
 
     <!-- ==================== SERVICES SECTION ==================== -->
+    /* ==================== ENHANCED HTML STRUCTURE ==================== */
+    <!-- ==================== ENHANCED SERVICES SECTION ==================== -->
     <section id="services" class="services-section">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h2 class="section-title text-start">Our Top Level Web Design Services in Australia – Built for
-                        Impact</h2>
-                    <p class="mb-4">We serve all major cities including:</p>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="service-item">Sydney</div>
-                            <div class="service-item">Melbourne</div>
-                            <div class="service-item">Brisbane</div>
-                            <div class="service-item">Perth</div>
-                            <div class="service-item">Adelaide</div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="service-item">Canberra</div>
-                            <div class="service-item">Gold Coast</div>
-                            <div class="service-item">Sunshine Coast</div>
-                            <div class="service-item">Darwin</div>
-                            <div class="service-item">Alice Springs</div>
-                        </div>
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title">Our Top Level Web Design Services in Australia – Built for Impact</h2>
+                    <p class="section-subtitle">We serve all major cities including:</p>
+                    <div class="cities-grid">
+                        <div class="service-item">Sydney</div>
+                        <div class="service-item">Melbourne</div>
+                        <div class="service-item">Brisbane</div>
+                        <div class="service-item">Perth</div>
+                        <div class="service-item">Adelaide</div>
+                        <div class="service-item">Canberra</div>
+                        <div class="service-item">Gold Coast</div>
+                        <div class="service-item">Sunshine Coast</div>
+                        <div class="service-item">Darwin</div>
+                        <div class="service-item">Alice Springs</div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://placehold.co/500x400/2b2b2b/ffffff?text=Australia+Wide+Services"
-                        alt="Australia Services" class="img-fluid rounded">
+                    <div class="image-container">
+                        <img src="https://placehold.co/600x450/2563eb/ffffff?text=Australia+Wide+Services"
+                            alt="Australia Services" class="img-fluid">
+                    </div>
                 </div>
             </div>
 
@@ -986,7 +1330,7 @@
             <div class="row mt-5">
                 <div class="col-12">
                     <div class="feature-card">
-                        <h3 class="feature-title text-primary-custom">Tasmania – We Serve Local Businesses Too</h3>
+                        <h3 class="feature-title">Tasmania – We Serve Local Businesses Too</h3>
                         <p>At Web EASY Experts, we're proud to support businesses not just in mainland cities, but also
                             in Tasmania — including Hobart, Launceston, Devonport, and nearby towns.</p>
                         <p>Whether you're a tourism operator, café owner, tradesperson, or creative agency in Tasmania,
@@ -995,17 +1339,17 @@
                         <div class="row mt-4">
                             <div class="col-md-6">
                                 <ul class="list-unstyled">
-                                    <li><i class="fas fa-check text-success me-2"></i> Fast-loading websites optimized
-                                        for local Tasmanian search</li>
-                                    <li><i class="fas fa-check text-success me-2"></i> Industry-specific designs for
-                                        retail, tourism, trades, and more</li>
+                                    <li><i class="fas fa-check-circle me-2"></i> Fast-loading websites optimized for
+                                        local Tasmanian search</li>
+                                    <li><i class="fas fa-check-circle me-2"></i> Industry-specific designs for retail,
+                                        tourism, trades, and more</li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
                                 <ul class="list-unstyled">
-                                    <li><i class="fas fa-check text-success me-2"></i> Localized support hours & quick
+                                    <li><i class="fas fa-check-circle me-2"></i> Localized support hours & quick
                                         turnaround</li>
-                                    <li><i class="fas fa-check text-success me-2"></i> Affordable pricing for regional
+                                    <li><i class="fas fa-check-circle me-2"></i> Affordable pricing for regional
                                         startups and growing businesses</li>
                                 </ul>
                             </div>
@@ -1017,39 +1361,41 @@
             </div>
 
             <!-- Website Features -->
-            <div class="row mt-5">
+            <div class="row">
                 <div class="col-12">
-                    <h3 class="text-center mb-4">Each site we design includes:</h3>
-                    <div class="row">
-                        <div class="col-lg-2 col-md-4 col-6 text-center mb-3">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-mobile-alt"></i>
+                    <div class="features-container">
+                        <h3 class="features-title">Each site we design includes:</h3>
+                        <div class="features-grid">
+                            <div class="feature-icon-container">
+                                <div class="feature-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <p>Mobile Responsive First Layout</p>
                             </div>
-                            <p class="mt-2">Mobile Responsive First Layout</p>
-                        </div>
-                        <div class="col-lg-2 col-md-4 col-6 text-center mb-3">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-palette"></i>
+                            <div class="feature-icon-container">
+                                <div class="feature-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <p>Clean & Modern UI/UX</p>
                             </div>
-                            <p class="mt-2">Clean & Modern UI/UX</p>
-                        </div>
-                        <div class="col-lg-2 col-md-4 col-6 text-center mb-3">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-tachometer-alt"></i>
+                            <div class="feature-icon-container">
+                                <div class="feature-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                <p>Fast Load Speed</p>
                             </div>
-                            <p class="mt-2">Fast Load Speed</p>
-                        </div>
-                        <div class="col-lg-2 col-md-4 col-6 text-center mb-3">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-search"></i>
+                            <div class="feature-icon-container">
+                                <div class="feature-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <p>SEO Friendly Structure</p>
                             </div>
-                            <p class="mt-2">SEO Friendly Structure</p>
-                        </div>
-                        <div class="col-lg-2 col-md-4 col-6 text-center mb-3">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-edit"></i>
+                            <div class="feature-icon-container">
+                                <div class="feature-icon">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                                <p>Easy Content Management System</p>
                             </div>
-                            <p class="mt-2">Easy Content Management System</p>
                         </div>
                     </div>
                 </div>
