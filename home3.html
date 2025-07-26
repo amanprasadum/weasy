@@ -18,13 +18,30 @@
 
     <style>
         /* ==================== ROOT VARIABLES ==================== */
-        :root {
+        /* :root {
             --primary-color: #112D4E;
             --secondary-color: #3F72AF;
             --light-gray: #f2f2f2;
             --white: #ffffff;
             --text-dark: #112D4E;
             --text-light: #666666;
+        } */
+
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2d3748;
+            --accent-color: #3182ce;
+            --success-color: #38a169;
+            --light-blue: #ebf8ff;
+            --light-gray: #f7fafc;
+            --lighter-gray: #edf2f7;
+            --white: #ffffff;
+            --text-dark: #2d3748;
+            --text-light: #4a5568;
+            --text-muted: #718096;
+            --border-color: #e2e8f0;
+            --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.07);
         }
 
         /* ==================== GLOBAL STYLES ==================== */
@@ -466,196 +483,84 @@
         }
 
         /* ==================== SERVICES SECTION ==================== */
-        /* ==================== ENHANCED SERVICES SECTION ==================== */
-        .services-section {
-            padding: 120px 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            position: relative;
-            overflow: hidden;
-        }
 
-        .services-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%232563eb' fill-opacity='0.02'%3E%3Cpath d='M50 50c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10zm-20 0c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
+        .services-section {
+            padding: 100px 0;
+            background: var(--light-gray);
         }
 
         .section-title {
-            font-size: 2.8rem;
-            font-weight: 800;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
-            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-light);
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             font-weight: 500;
         }
 
         /* ==================== CITY SERVICES GRID ==================== */
         .cities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .service-item {
             background: var(--white);
-            padding: 1.8rem 1.5rem;
-            border-radius: 16px;
+            padding: 1.5rem;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-left: 4px solid var(--accent-color);
             font-weight: 600;
-            font-size: 1.1rem;
             color: var(--text-dark);
-            text-align: center;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
+            transition: border-left-color 0.2s ease;
             box-shadow: var(--shadow-light);
         }
 
-        .service-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-            transform-origin: left;
-        }
-
-        .service-item::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 0.4s ease;
-            z-index: 0;
-        }
-
-        .service-item:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-item:hover::after {
-            width: 300px;
-            height: 300px;
-        }
-
         .service-item:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-heavy);
-            border-color: var(--primary-color);
-        }
-
-        .service-item:hover {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            border-left-color: var(--primary-color);
         }
 
         /* ==================== IMAGE CONTAINER ==================== */
         .image-container {
-            position: relative;
-            border-radius: 24px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow-medium);
-            transition: all 0.4s ease;
-        }
-
-        .image-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            z-index: 1;
-            transition: opacity 0.4s ease;
-        }
-
-        .image-container:hover::before {
-            opacity: 0.3;
-        }
-
-        .image-container:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-heavy);
         }
 
         .image-container img {
             width: 100%;
             height: auto;
-            transition: transform 0.4s ease;
-        }
-
-        .image-container:hover img {
-            transform: scale(1.05);
+            display: block;
         }
 
         /* ==================== FEATURE CARD ==================== */
         .feature-card {
             background: var(--white);
-            border-radius: 24px;
-            padding: 3rem;
+            border-radius: 12px;
+            padding: 2.5rem;
             box-shadow: var(--shadow-medium);
             border: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: var(--gradient-accent);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-heavy);
+            border-top: 4px solid var(--accent-color);
         }
 
         .feature-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary-color);
         }
 
         .feature-card p {
             color: var(--text-light);
-            line-height: 1.8;
+            line-height: 1.7;
             margin-bottom: 1.5rem;
         }
 
@@ -668,77 +573,53 @@
 
         .feature-card ul li i {
             color: var(--success-color);
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
-        /* ==================== FEATURES GRID ==================== */
+        /* ==================== FEATURES CONTAINER ==================== */
         .features-container {
             background: var(--white);
-            border-radius: 24px;
-            padding: 3rem 2rem;
+            border-radius: 12px;
+            padding: 2.5rem;
             box-shadow: var(--shadow-medium);
             border: 1px solid var(--border-color);
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
 
         .features-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
+            margin-bottom: 2.5rem;
+            color: var(--primary-color);
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
         }
 
         .feature-icon-container {
             text-align: center;
-            transition: all 0.4s ease;
             padding: 1rem;
-            border-radius: 16px;
-        }
-
-        .feature-icon-container:hover {
-            transform: translateY(-5px);
         }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-primary);
+            width: 70px;
+            height: 70px;
+            background: var(--light-blue);
+            border: 2px solid var(--accent-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1rem;
-            box-shadow: var(--shadow-light);
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .feature-icon::after {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .feature-icon-container:hover .feature-icon::after {
-            opacity: 1;
-            animation: pulse 2s infinite;
         }
 
         .feature-icon i {
-            color: var(--white);
-            font-size: 1.8rem;
+            color: var(--accent-color);
+            font-size: 1.5rem;
         }
 
         .feature-icon-container p {
@@ -746,20 +627,7 @@
             color: var(--text-dark);
             line-height: 1.4;
             margin: 0;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 0.7;
-            }
-
-            50% {
-                transform: scale(1.1);
-                opacity: 0.3;
-            }
+            font-size: 0.95rem;
         }
 
         /* ==================== RESPONSIVE DESIGN ==================== */
@@ -777,23 +645,18 @@
             }
 
             .features-container {
-                padding: 2rem 1.5rem;
+                padding: 2rem;
             }
         }
 
         @media (max-width: 768px) {
             .section-title {
-                font-size: 1.8rem;
+                font-size: 1.9rem;
                 text-align: center;
             }
 
             .cities-grid {
                 grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-
-            .service-item {
-                padding: 1.5rem;
             }
 
             .features-grid {
@@ -807,9 +670,18 @@
             }
 
             .feature-icon i {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
         }
+
+        @media (max-width: 480px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==================== SERVICES SECTION END ==================== */
+
 
 
         /* ==================== TESTIMONIALS SECTION ==================== */
@@ -1278,104 +1150,110 @@
     </section>
 
     <!-- ==================== SERVICES SECTION ==================== -->
-   /* ==================== ENHANCED HTML STRUCTURE ==================== */
-<!-- ==================== ENHANCED SERVICES SECTION ==================== -->
-<section id="services" class="services-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 mb-5 mb-lg-0">
-                <h2 class="section-title">Our Top Level Web Design Services in Australia – Built for Impact</h2>
-                <p class="section-subtitle">We serve all major cities including:</p>
-                <div class="cities-grid">
-                    <div class="service-item">Sydney</div>
-                    <div class="service-item">Melbourne</div>
-                    <div class="service-item">Brisbane</div>
-                    <div class="service-item">Perth</div>
-                    <div class="service-item">Adelaide</div>
-                    <div class="service-item">Canberra</div>
-                    <div class="service-item">Gold Coast</div>
-                    <div class="service-item">Sunshine Coast</div>
-                    <div class="service-item">Darwin</div>
-                    <div class="service-item">Alice Springs</div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="image-container">
-                    <img src="https://placehold.co/600x450/2563eb/ffffff?text=Australia+Wide+Services" 
-                         alt="Australia Services" class="img-fluid">
-                </div>
-            </div>
-        </div>
-
-        <!-- Tasmania Section -->
-        <div class="row mt-5">
-            <div class="col-12">
-                <div class="feature-card">
-                    <h3 class="feature-title">Tasmania – We Serve Local Businesses Too</h3>
-                    <p>At Web EASY Experts, we're proud to support businesses not just in mainland cities, but also in Tasmania — including Hobart, Launceston, Devonport, and nearby towns.</p>
-                    <p>Whether you're a tourism operator, café owner, tradesperson, or creative agency in Tasmania, we deliver affordable, professionally built websites tailored to your local audience and business goals.</p>
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check-circle me-2"></i> Fast-loading websites optimized for local Tasmanian search</li>
-                                <li><i class="fas fa-check-circle me-2"></i> Industry-specific designs for retail, tourism, trades, and more</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check-circle me-2"></i> Localized support hours & quick turnaround</li>
-                                <li><i class="fas fa-check-circle me-2"></i> Affordable pricing for regional startups and growing businesses</li>
-                            </ul>
-                        </div>
+    <!-- ==================== PROFESSIONAL SERVICES SECTION ==================== -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="section-title">Our Top Level Web Design Services in Australia – Built for Impact</h2>
+                    <p class="section-subtitle">We serve all major cities including:</p>
+                    <div class="cities-grid">
+                        <div class="service-item">Sydney</div>
+                        <div class="service-item">Melbourne</div>
+                        <div class="service-item">Brisbane</div>
+                        <div class="service-item">Perth</div>
+                        <div class="service-item">Adelaide</div>
+                        <div class="service-item">Canberra</div>
+                        <div class="service-item">Gold Coast</div>
+                        <div class="service-item">Sunshine Coast</div>
+                        <div class="service-item">Darwin</div>
+                        <div class="service-item">Alice Springs</div>
                     </div>
-                    <p class="mt-3">You don't need a big-city budget to get a high-performing website. Web EASY Experts brings agency-quality design to businesses across Tasmania.</p>
                 </div>
-            </div>
-        </div>
-
-        <!-- Website Features -->
-        <div class="row">
-            <div class="col-12">
-                <div class="features-container">
-                    <h3 class="features-title">Each site we design includes:</h3>
-                    <div class="features-grid">
-                        <div class="feature-icon-container">
-                            <div class="feature-icon">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <p>Mobile Responsive First Layout</p>
-                        </div>
-                        <div class="feature-icon-container">
-                            <div class="feature-icon">
-                                <i class="fas fa-palette"></i>
-                            </div>
-                            <p>Clean & Modern UI/UX</p>
-                        </div>
-                        <div class="feature-icon-container">
-                            <div class="feature-icon">
-                                <i class="fas fa-tachometer-alt"></i>
-                            </div>
-                            <p>Fast Load Speed</p>
-                        </div>
-                        <div class="feature-icon-container">
-                            <div class="feature-icon">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <p>SEO Friendly Structure</p>
-                        </div>
-                        <div class="feature-icon-container">
-                            <div class="feature-icon">
-                                <i class="fas fa-edit"></i>
-                            </div>
-                            <p>Easy Content Management System</p>
-                        </div>
+                <div class="col-lg-6">
+                    <div class="image-container">
+                        <img src="https://placehold.co/600x450/1a365d/ffffff?text=Australia+Wide+Services"
+                            alt="Australia Services" class="img-fluid">
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
 
+            <!-- Tasmania Section -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="feature-card">
+                        <h3 class="feature-title">Tasmania – We Serve Local Businesses Too</h3>
+                        <p>At Web EASY Experts, we're proud to support businesses not just in mainland cities, but also
+                            in Tasmania — including Hobart, Launceston, Devonport, and nearby towns.</p>
+                        <p>Whether you're a tourism operator, café owner, tradesperson, or creative agency in Tasmania,
+                            we deliver affordable, professionally built websites tailored to your local audience and
+                            business goals.</p>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check-circle me-2"></i> Fast-loading websites optimized for
+                                        local Tasmanian search</li>
+                                    <li><i class="fas fa-check-circle me-2"></i> Industry-specific designs for retail,
+                                        tourism, trades, and more</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check-circle me-2"></i> Localized support hours & quick
+                                        turnaround</li>
+                                    <li><i class="fas fa-check-circle me-2"></i> Affordable pricing for regional
+                                        startups and growing businesses</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="mt-3">You don't need a big-city budget to get a high-performing website. Web EASY
+                            Experts brings agency-quality design to businesses across Tasmania.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Website Features -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="features-container">
+                        <h3 class="features-title">Each site we design includes:</h3>
+                        <div class="features-grid">
+                            <div class="feature-icon-container">
+                                <div class="feature-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <p>Mobile Responsive First Layout</p>
+                            </div>
+                            <div class="feature-icon-container">
+                                <div class="feature-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <p>Clean & Modern UI/UX</p>
+                            </div>
+                            <div class="feature-icon-container">
+                                <div class="feature-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                <p>Fast Load Speed</p>
+                            </div>
+                            <div class="feature-icon-container">
+                                <div class="feature-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <p>SEO Friendly Structure</p>
+                            </div>
+                            <div class="feature-icon-container">
+                                <div class="feature-icon">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                                <p>Easy Content Management System</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- ==================== TECHNOLOGIES SECTION ==================== -->
     <section class="features-section">
         <div class="container">
