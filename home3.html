@@ -145,10 +145,9 @@
         }
 
         /* ==================== HERO SECTION ==================== */
-        /* ==================== AWESOME HERO SECTION ==================== */
         .hero-section {
-            background: linear-gradient(135deg, #f7fafc 0%, #ffffff 50%, #ebf8ff 100%);
-            padding: 140px 0 100px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 100%);
+            padding: 0;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -156,29 +155,397 @@
             overflow: hidden;
         }
 
-        /* Animated Background Elements */
+        /* Dynamic Background Elements */
         .hero-section::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(49, 130, 206, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 20s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+            animation: backgroundShift 20s ease-in-out infinite;
         }
 
+        @keyframes backgroundShift {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        /* Animated Particles */
         .hero-section::after {
             content: '';
             position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(26, 54, 93, 0.03) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 15s ease-in-out infinite reverse;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.15), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(59, 130, 246, 0.3), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(139, 92, 246, 0.4), transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(6, 182, 212, 0.4), transparent);
+            background-repeat: repeat;
+            background-size: 150px 150px;
+            animation: particleFloat 25s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(-150px, -150px);
+            }
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        /* Modern Layout Structure */
+        .hero-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .hero-text-content {
+            padding: 2rem 0;
+            animation: slideInLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-visual-content {
+            position: relative;
+            animation: slideInRight 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Typography */
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.8s forwards;
+        }
+
+        /* Modern Stats Design */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.2s forwards;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+
+        /* Modern Buttons */
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1s forwards;
+        }
+
+        .btn-primary-modern {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-primary-modern:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary-modern:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary-modern {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #cbd5e1;
+            font-weight: 600;
+            padding: 14px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary-modern:hover {
+            border-color: #3b82f6;
+            color: white;
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Modern Visual Content */
+        .hero-visual {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .main-visual {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-visual::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg at 50% 50%, transparent, rgba(59, 130, 246, 0.1), transparent);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .visual-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .visual-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .visual-subtitle {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+        }
+
+        .feature-icon i {
+            color: white;
+            font-size: 1rem;
+        }
+
+        .feature-text {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 10%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 30%;
+            left: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 20%;
+            right: 20%;
+            animation-delay: 4s;
         }
 
         @keyframes float {
@@ -193,314 +560,16 @@
             }
         }
 
-        /* Animated Grid Pattern */
-        .hero-section .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image:
-                linear-gradient(rgba(49, 130, 206, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(49, 130, 206, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 30s linear infinite;
-            z-index: 1;
-        }
-
-        @keyframes gridMove {
-            0% {
-                transform: translate(0, 0);
-            }
-
-            100% {
-                transform: translate(50px, 50px);
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Enhanced Hero Title */
-        .hero-title {
-            font-size: 3.2rem;
-            font-weight: 800;
-            line-height: 1.2;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            position: relative;
-            animation: fadeInLeft 1s ease-out;
-        }
-
-        /* Animated Highlight Effect */
-        .hero-title-highlight {
-            position: relative;
-            display: inline-block;
-        }
-
-        .hero-title-highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
-            animation: underlineExpand 2s ease-out 0.5s forwards;
-        }
-
-        @keyframes underlineExpand {
-            to {
-                width: 100%;
-            }
-        }
-
-        /* Animated Decorative Line */
-        .hero-title::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            margin: 1rem 0;
-            border-radius: 2px;
-            animation: lineExpand 1.5s ease-out 1s forwards;
-        }
-
-        @keyframes lineExpand {
-            to {
-                width: 120px;
-            }
-        }
-
-        /* Enhanced Subtitle Animation */
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.3s forwards;
-        }
-
-        .hero-subtitle:nth-of-type(2) {
-            animation-delay: 0.6s;
-        }
-
-        /* Stats Counter Animation */
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-            margin: 2rem 0;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 1.2s forwards;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 12px;
-            border: 1px solid rgba(49, 130, 206, 0.1);
-            backdrop-filter: blur(10px);
-            flex: 1;
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            display: block;
-            counter-reset: num var(--num);
-        }
-
-        .stat-number::after {
-            content: counter(num);
-            animation: counter 2s ease-out 1.5s forwards;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            font-weight: 600;
-            margin-top: 0.5rem;
-        }
-
-        @keyframes counter {
-            from {
-                --num: 0;
-            }
-
-            to {
-                --num: var(--target);
-            }
-        }
-
-        /* Enhanced Buttons */
-        .hero-buttons {
-            margin-top: 2.5rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.9s forwards;
-        }
-
-        .btn-primary-custom {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border: none;
-            color: var(--white);
-            font-weight: 600;
-            padding: 14px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            margin-right: 1rem;
-        }
-
-        .btn-primary-custom::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-primary-custom:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary-custom:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(49, 130, 206, 0.3);
-        }
-
-        .btn-outline-primary {
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            background: transparent;
-            font-weight: 600;
-            padding: 12px 24px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-outline-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: var(--primary-color);
-            transition: width 0.3s ease;
-            z-index: -1;
-        }
-
-        .btn-outline-primary:hover::before {
-            width: 100%;
-        }
-
-        .btn-outline-primary:hover {
-            color: var(--white);
-            transform: translateY(-2px);
-        }
-
-        /* Enhanced Hero Image */
-        .hero-image-container {
-            position: relative;
-            opacity: 0;
-            animation: fadeInRight 1s ease-out 0.6s forwards;
-        }
-
-        .hero-image {
-            border-radius: 16px;
-            box-shadow: 0 25px 50px rgba(26, 54, 93, 0.15);
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-            transition: transform 0.3s ease;
-        }
-
-        .hero-image:hover {
-            transform: scale(1.02);
-        }
-
-        /* Floating Elements */
-        .floating-element {
-            position: absolute;
-            opacity: 0.6;
-            animation: floatUpDown 6s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(1) {
-            top: 20%;
-            right: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            top: 60%;
-            right: 5%;
-            animation-delay: 2s;
-        }
-
-        .floating-element:nth-child(3) {
-            top: 40%;
-            right: 15%;
-            animation-delay: 4s;
-        }
-
-        @keyframes floatUpDown {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .floating-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(49, 130, 206, 0.1);
-        }
-
-        .floating-icon i {
-            color: var(--accent-color);
-            font-size: 1.2rem;
+        .floating-element i {
+            color: #3b82f6;
+            font-size: 1.5rem;
         }
 
         /* Animations */
-        @keyframes fadeInLeft {
+        @keyframes slideInLeft {
             from {
                 opacity: 0;
-                transform: translateX(-50px);
+                transform: translateX(-100px);
             }
 
             to {
@@ -509,10 +578,10 @@
             }
         }
 
-        @keyframes fadeInRight {
+        @keyframes slideInRight {
             from {
                 opacity: 0;
-                transform: translateX(50px);
+                transform: translateX(100px);
             }
 
             to {
@@ -524,7 +593,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
 
             to {
@@ -534,42 +603,44 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 992px) {
+        @media (max-width: 1024px) {
+            .hero-content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content-wrapper {
+                padding: 1rem;
+                gap: 2rem;
+            }
+
             .hero-title {
                 font-size: 2.5rem;
             }
 
             .hero-stats {
-                flex-direction: column;
+                grid-template-columns: 1fr;
                 gap: 1rem;
             }
 
-            .floating-element {
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-elements {
                 display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 120px 0 80px;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-                text-align: center;
-            }
-
-            .hero-subtitle {
-                text-align: center;
-            }
-
-            .hero-buttons {
-                text-align: center;
-            }
-
-            .btn-primary-custom {
-                margin-bottom: 1rem;
-                margin-right: 0;
             }
         }
 
@@ -1377,63 +1448,99 @@
     </section> -->
 
     <section id="home" class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="hero-content">
+        <div class="hero-container">
+            <div class="container-fluid">
+                <div class="hero-content-wrapper">
+                    <!-- Text Content -->
+                    <div class="hero-text-content">
                         <h1 class="hero-title">
-                            <span class="hero-title-highlight">Web EASY Experts</span> – Leading Indian Web Design
-                            Company for Australian Businesses
+                            <span class="highlight">Web EASY Experts</span><br>
+                            Leading Web Design for Australian Businesses
                         </h1>
-                        <p class="hero-subtitle">Welcome to Web EASY Experts, your trusted one of leading company for
-                            website design and development in Australia. We are an India-based agency known for
-                            delivering world-class websites at highly competitive prices to businesses all across
-                            Australia.</p>
-                        <p class="hero-subtitle">With years of experience and a deep understanding of the Australian
+
+                        <p class="hero-subtitle">India-based agency delivering world-class websites at competitive
+                            prices across Australia</p>
+
+                        <p class="hero-description">With years of experience and deep understanding of the Australian
                             market, we help local brands build visually stunning, fast, and SEO-optimized websites that
                             generate real results.</p>
 
-                        <!-- Stats Section -->
+                        <!-- Modern Stats -->
                         <div class="hero-stats">
-                            <div class="stat-item">
-                                <span class="stat-number" style="--target: 500; --num: 500">500</span>
-                                <span class="stat-label">Projects Completed</span>
+                            <div class="stat-card">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Projects Delivered</span>
                             </div>
-                            <div class="stat-item">
-                                <span class="stat-number" style="--target: 98; --num: 98">98</span>
-                                <span class="stat-label">% Client Satisfaction</span>
+                            <div class="stat-card">
+                                <span class="stat-number">98%</span>
+                                <span class="stat-label">Client Satisfaction</span>
                             </div>
-                            <div class="stat-item">
-                                <span class="stat-number" style="--target: 5; --num: 5">5</span>
+                            <div class="stat-card">
+                                <span class="stat-number">5+</span>
                                 <span class="stat-label">Years Experience</span>
                             </div>
                         </div>
 
-                        <div class="hero-buttons">
-                            <a href="#contact" class="btn btn-primary-custom">Get Started Today</a>
-                            <a href="#services" class="btn btn-outline-primary">Our Services</a>
+                        <div class="hero-actions">
+                            <a href="#contact" class="btn-primary-modern">
+                                <i class="fas fa-rocket"></i>
+                                Get Started Today
+                            </a>
+                            <a href="#services" class="btn-secondary-modern">
+                                <i class="fas fa-arrow-right"></i>
+                                Explore Services
+                            </a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="hero-image-container">
-                        <img src="https://placehold.co/600x400/1a365d/ffffff?text=Professional+Web+Design"
-                            alt="Web Design Services" class="hero-image">
 
-                        <!-- Floating Elements -->
-                        <div class="floating-element">
-                            <div class="floating-icon">
-                                <i class="fas fa-code"></i>
+                    <!-- Visual Content -->
+                    <div class="hero-visual-content">
+                        <div class="hero-visual">
+                            <div class="main-visual">
+                                <div class="visual-content">
+                                    <h3 class="visual-title">Professional Web Solutions</h3>
+                                    <p class="visual-subtitle">Everything you need for online success</p>
+
+                                    <div class="feature-grid">
+                                        <div class="feature-item">
+                                            <div class="feature-icon">
+                                                <i class="fas fa-mobile-alt"></i>
+                                            </div>
+                                            <div class="feature-text">Responsive Design</div>
+                                        </div>
+                                        <div class="feature-item">
+                                            <div class="feature-icon">
+                                                <i class="fas fa-search"></i>
+                                            </div>
+                                            <div class="feature-text">SEO Optimized</div>
+                                        </div>
+                                        <div class="feature-item">
+                                            <div class="feature-icon">
+                                                <i class="fas fa-bolt"></i>
+                                            </div>
+                                            <div class="feature-text">Fast Loading</div>
+                                        </div>
+                                        <div class="feature-item">
+                                            <div class="feature-icon">
+                                                <i class="fas fa-shield-alt"></i>
+                                            </div>
+                                            <div class="feature-text">Secure & Reliable</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="floating-element">
-                            <div class="floating-icon">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                        </div>
-                        <div class="floating-element">
-                            <div class="floating-icon">
-                                <i class="fas fa-search"></i>
+
+                            <!-- Floating Elements -->
+                            <div class="floating-elements">
+                                <div class="floating-element">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="floating-element">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <div class="floating-element">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
