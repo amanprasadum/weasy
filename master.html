@@ -69,90 +69,34 @@
         }
 
         /* === HEADER STYLES === */
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(15, 23, 42, 0.95);
+        /* === BOOTSTRAP NAVBAR OVERRIDES === */
+        .navbar {
+            padding: 0;
+            background: rgba(15, 23, 42, 0.95) !important;
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .main-header.scrolled {
-            background: rgba(15, 23, 42, 0.98);
+        .navbar.scrolled {
+            background: rgba(15, 23, 42, 0.98) !important;
             box-shadow: var(--shadow-lg);
         }
 
-        /* Header Container */
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 0;
-            position: relative;
-        }
-
-        /* Logo Styles */
-        .header-logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: white;
-            font-weight: 700;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .header-logo:hover {
-            color: var(--primary-light);
-            transform: scale(1.05);
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 0.75rem;
-            box-shadow: var(--shadow-md);
-        }
-
-        .logo-icon i {
-            font-size: 1.2rem;
-            color: white;
-        }
-
-        /* Navigation Styles */
-        .header-nav {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
+        .navbar-expand-lg .navbar-nav {
             gap: 2rem;
         }
 
-        .nav-item {
-            position: relative;
-        }
-
-        .nav-link {
-            color: var(--gray-300);
-            text-decoration: none;
+        .navbar-nav .nav-link {
+            color: var(--gray-300) !important;
             font-weight: 500;
             font-size: 0.95rem;
-            padding: 0.5rem 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0.5rem 0 !important;
             position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .nav-link::before {
+        .navbar-nav .nav-link::before {
             content: '';
             position: absolute;
             bottom: -2px;
@@ -163,186 +107,106 @@
             transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .nav-link:hover,
-        .nav-link.active {
-            color: white;
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: white !important;
         }
 
-        .nav-link:hover::before,
-        .nav-link.active::before {
+        .navbar-nav .nav-link:hover::before,
+        .navbar-nav .nav-link.active::before {
             width: 100%;
         }
 
-        /* Dropdown Menu Styles */
-        .dropdown-menu-custom {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 0.5rem 0;
-            min-width: 200px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .nav-item:hover .dropdown-menu-custom {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-item-custom {
-            display: block;
-            padding: 0.75rem 1.5rem;
-            color: var(--gray-300);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+        /* Custom Toggler */
+        .navbar-toggler {
             border: none;
-            background: none;
-        }
-
-        .dropdown-item-custom:hover {
-            background: rgba(0, 82, 255, 0.1);
-            color: white;
-            padding-left: 2rem;
-        }
-
-        /* Header Actions */
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .search-toggle,
-        .theme-toggle {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--gray-300);
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(10px);
-        }
-
-        .search-toggle:hover,
-        .theme-toggle:hover {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: white;
-            transform: scale(1.05);
-        }
-
-        .header-cta {
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-md);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .header-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg), var(--shadow-glow);
-            color: white;
-        }
-
-        .header-cta i {
-            margin-left: 0.5rem;
-            font-size: 0.8rem;
-        }
-
-        /* Mobile Menu Toggle */
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            background: none;
-            border: none;
-            cursor: pointer;
             padding: 8px;
+            background: none;
+            position: relative;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
         }
 
         .hamburger-line {
+            display: block;
             width: 25px;
             height: 2px;
             background: white;
+            margin: 4px 0;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border-radius: 1px;
         }
 
-        .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(1) {
             transform: rotate(45deg) translate(6px, 6px);
         }
 
-        .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(2) {
             opacity: 0;
         }
 
-        .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(3) {
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.98);
+        /* Mobile Menu Styles */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 0 0 12px 12px;
+                margin-top: 1rem;
+                padding: 2rem 1rem;
+            }
+
+            .navbar-nav {
+                text-align: center;
+                gap: 0 !important;
+            }
+
+            .navbar-nav .nav-link {
+                padding: 1rem 0 !important;
+                font-size: 1.1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .header-actions {
+                margin-top: 2rem;
+                justify-content: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .header-actions .search-toggle,
+            .header-actions .theme-toggle {
+                display: flex !important;
+            }
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu-custom {
+            background: rgba(15, 23, 42, 0.95) !important;
             backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2rem 0;
-            transform: translateY(-100%);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 12px;
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-xl);
         }
 
-        .mobile-menu.active {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
+        .dropdown-item-custom {
+            color: var(--gray-300) !important;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            padding: 0.75rem 1.5rem !important;
         }
 
-        .mobile-nav {
-            flex-direction: column;
-            gap: 0;
-            text-align: center;
-        }
-
-        .mobile-nav .nav-link {
-            padding: 1rem 0;
-            font-size: 1.1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .mobile-actions {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
+        .dropdown-item-custom:hover {
+            background: rgba(0, 82, 255, 0.1) !important;
+            color: white !important;
+            padding-left: 2rem !important;
         }
 
         /* === HERO SLIDER STYLES === */
@@ -2063,106 +1927,77 @@
 
 <body>
     <!-- === HEADER SECTION === -->
-    <header class="main-header" id="header">
-        <div class="container">
-            <div class="header-container">
+    <!-- === HEADER SECTION === -->
+    <header class="main-header fixed-top" id="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
                 <!-- Logo -->
-                <a href="#home" class="header-logo">
+                <a class="navbar-brand header-logo" href="#home">
                     <div class="logo-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
                     <span>TechCorp</span>
                 </a>
 
-                <!-- Desktop Navigation -->
-                <nav class="header-nav d-none d-lg-flex">
-                    <div class="nav-item">
-                        <a href="#home" class="nav-link active">Home</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#services" class="nav-link">Services</a>
-                        <div class="dropdown-menu-custom">
-                            <a href="#web-dev" class="dropdown-item-custom">
-                                <i class="fas fa-code me-2"></i>Web Development
-                            </a>
-                            <a href="#mobile-dev" class="dropdown-item-custom">
-                                <i class="fas fa-mobile-alt me-2"></i>Mobile Apps
-                            </a>
-                            <a href="#ai-solutions" class="dropdown-item-custom">
-                                <i class="fas fa-brain me-2"></i>AI Solutions
-                            </a>
-                        </div>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#about" class="nav-link">About</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#portfolio" class="nav-link">Portfolio</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#contact" class="nav-link">Contact</a>
-                    </div>
-                </nav>
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
 
-                <!-- Header Actions -->
-                <div class="header-actions">
-                    <!-- Search Toggle -->
-                    <button class="search-toggle d-none d-md-flex">
-                        <i class="fas fa-search"></i>
-                    </button>
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#services" data-bs-toggle="dropdown">Services</a>
+                            <ul class="dropdown-menu dropdown-menu-custom">
+                                <li><a class="dropdown-item dropdown-item-custom" href="#web-dev">
+                                        <i class="fas fa-code me-2"></i>Web Development
+                                    </a></li>
+                                <li><a class="dropdown-item dropdown-item-custom" href="#mobile-dev">
+                                        <i class="fas fa-mobile-alt me-2"></i>Mobile Apps
+                                    </a></li>
+                                <li><a class="dropdown-item dropdown-item-custom" href="#ai-solutions">
+                                        <i class="fas fa-brain me-2"></i>AI Solutions
+                                    </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#portfolio">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
 
-                    <!-- Theme Toggle -->
-                    <button class="theme-toggle d-none d-md-flex">
-                        <i class="fas fa-moon"></i>
-                    </button>
+                    <!-- Header Actions -->
+                    <div class="header-actions d-flex align-items-center">
+                        <!-- Search Toggle -->
+                        <button class="search-toggle d-none d-md-flex">
+                            <i class="fas fa-search"></i>
+                        </button>
 
-                    <!-- CTA Button -->
-                    <a href="#contact" class="header-cta">
-                        Get Started
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+                        <!-- Theme Toggle -->
+                        <button class="theme-toggle d-none d-md-flex">
+                            <i class="fas fa-moon"></i>
+                        </button>
 
-                    <!-- Mobile Menu Toggle -->
-                    <button class="mobile-menu-toggle d-lg-none">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </button>
+                        <!-- CTA Button -->
+                        <a href="#contact" class="header-cta">
+                            Get Started
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <div class="container">
-                <nav class="header-nav mobile-nav">
-                    <div class="nav-item">
-                        <a href="#home" class="nav-link">Home</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#services" class="nav-link">Services</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#about" class="nav-link">About</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#portfolio" class="nav-link">Portfolio</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#contact" class="nav-link">Contact</a>
-                    </div>
-                </nav>
-
-                <div class="mobile-actions">
-                    <button class="search-toggle">
-                        <i class="fas fa-search"></i>
-                    </button>
-                    <button class="theme-toggle">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
+        </nav>
     </header>
 
     <!-- === HERO SLIDER SECTION === -->
