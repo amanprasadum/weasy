@@ -4412,6 +4412,10 @@
         window.addEventListener('scroll', debounce(() => {
             // Additional scroll-based functionality can be added here
         }, 16)); // ~60fps
+
+        document.querySelectorAll('.process-card, .testimonial-card, .cost-content, .tasmania-content, .cta-buttons').forEach(element => {
+            observer.observe(element);
+        });
     </script>
 </body>
 
