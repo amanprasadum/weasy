@@ -24,8 +24,11 @@
     --gray-900: #0F172A;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #0052FF 0%, #6366F1 100%);
-    --gradient-secondary: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    /* --gradient-primary: linear-gradient(135deg, #0052FF 0%, #6366F1 100%); */
+    --gradient-primary: linear-gradient(135deg, #ff1515 0%, #6e0000 100%);
+    /* --gradient-secondary: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); */
+    --gradient-secondary: linear-gradient(135deg, #ff1515 0%, #6e0000 100%);
+
     --gradient-accent: linear-gradient(135deg, #10B981 0%, #0891B2 100%);
     --gradient-dark: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
     --gradient-mesh: radial-gradient(circle at 20% 50%, rgba(0, 82, 255, 0.1) 0%, transparent 50%),
