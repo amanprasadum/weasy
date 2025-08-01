@@ -1145,6 +1145,22 @@
     <!-- Bootstrap JS for responsive functionality -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/main.js"></script>
+    <!-- JavaScript to toggle placeholder effect after content loads -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Simulate content loading (replace with actual data fetch if needed)
+            setTimeout(() => {
+                const cards = document.querySelectorAll('.process-card');
+                cards.forEach(card => {
+                    card.classList.remove('placeholder-glow');
+                    card.querySelectorAll('.placeholder').forEach(elem => {
+                        elem.classList.remove('placeholder');
+                    });
+                });
+            }, 2000); // Adjust delay as needed
+        });
+    </script>
 </body>
+
 
 </html>
