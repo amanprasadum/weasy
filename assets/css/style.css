@@ -2890,3 +2890,182 @@
          font-size: 0.55rem;
      }
  }
+
+
+ /* 06-08-2025 */
+ .web-designer-section {
+     padding: 100px 0;
+     position: relative;
+     background: var(--gradient-dark);
+     overflow: hidden;
+ }
+
+ .web-designer-section .section-header {
+     max-width: 800px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ .web-designer-section .section-badge {
+     background: var(--gradient-primary);
+     color: white;
+     padding: 8px 16px;
+     border-radius: 20px;
+     font-size: 0.9rem;
+     display: inline-flex;
+     align-items: center;
+     margin-bottom: 16px;
+ }
+
+ .web-designer-section .section-badge i {
+     margin-right: 8px;
+ }
+
+ .web-designer-section .section-title {
+     font-size: 2.5rem;
+     font-weight: 700;
+     color: white;
+     margin-bottom: 16px;
+ }
+
+ .web-designer-section .section-title span {
+     font-size: 1.5rem;
+     color: var(--gray-300);
+ }
+
+ .web-designer-section .section-subtitle {
+     font-size: 1.1rem;
+     color: var(--gray-300);
+     line-height: 1.6;
+     margin-bottom: 0;
+ }
+
+ .web-designer-section .cta-buttons .btn {
+     padding: 12px 24px;
+     font-size: 1rem;
+     border-radius: 50px;
+     transition: all 0.3s ease;
+ }
+
+ .web-designer-section .btn-primary-custom {
+     background: var(--gradient-primary);
+     border: none;
+     color: white;
+ }
+
+ .web-designer-section .btn-primary-custom:hover {
+     background: var(--gradient-primary-dark);
+     transform: translateY(-2px);
+ }
+
+ /* --------------service section------------- */
+ .services-section {
+     padding: 100px 0;
+     position: relative;
+     background: var(--gradient-dark);
+     overflow: hidden;
+ }
+
+ .services-section .section-header {
+     max-width: 800px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ .services-section .section-badge {
+     background: var(--gradient-primary);
+     color: white;
+     padding: 8px 16px;
+     border-radius: 20px;
+     font-size: 0.9rem;
+     display: inline-flex;
+     align-items: center;
+     margin-bottom: 16px;
+ }
+
+ .services-section .section-badge i {
+     margin-right: 8px;
+ }
+
+ .services-section .section-title {
+     font-size: 2.5rem;
+     font-weight: 700;
+     color: white;
+     margin-bottom: 16px;
+ }
+
+ .services-section .section-title span {
+     font-size: 1.5rem;
+     color: var(--gray-300);
+ }
+
+ .services-section .section-subtitle {
+     font-size: 1.1rem;
+     color: var(--gray-300);
+     line-height: 1.6;
+     margin-bottom: 0;
+ }
+
+ .service-card {
+     background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+     border: 1px solid rgba(255, 255, 255, 0.1);
+     border-radius: 20px;
+     padding: 30px;
+     text-align: center;
+     backdrop-filter: blur(10px);
+     transition: all 0.3s ease;
+     position: relative;
+     overflow: hidden;
+ }
+
+ .service-card::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 3px;
+     background: var(--gradient-primary);
+     transform: scaleX(0);
+     transition: transform 0.3s ease;
+ }
+
+ .service-card:hover::before {
+     transform: scaleX(1);
+ }
+
+ .service-card:hover {
+     transform: translateY(-10px);
+     box-shadow: var(--shadow-2xl);
+     border-color: rgba(0, 82, 255, 0.3);
+ }
+
+ .service-icon {
+     width: 70px;
+     height: 70px;
+     background: var(--gradient-primary);
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin: 0 auto 20px;
+     box-shadow: var(--shadow-lg);
+ }
+
+ .service-icon i {
+     font-size: 28px;
+     color: white;
+ }
+
+ .service-card h4 {
+     font-size: 1.25rem;
+     font-weight: 600;
+     color: white;
+     margin-bottom: 16px;
+ }
+
+ .service-card p {
+     color: var(--gray-300);
+     line-height: 1.6;
+     margin: 0;
+ }
