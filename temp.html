@@ -1,0 +1,2467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web EASY Experts - Leading Indian Web Design Company for Australian Businesses</title>
+    <!-- External CSS Dependencies -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* === CSS VARIABLES & ROOT SETTINGS === */
+        :root {
+            /* Professional Color Palette */
+            --primary: #0052FF;
+            --primary-dark: #0041CC;
+            --primary-light: #4285FF;
+            --secondary: #6366F1;
+            --secondary-dark: #4F46E5;
+            --accent: #10B981;
+            --accent-dark: #059669;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            /* Neutral Colors */
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-400: #94A3B8;
+            --gray-500: #64748B;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1E293B;
+            --gray-900: #0F172A;
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #0052FF 0%, #6366F1 100%);
+            --gradient-secondary: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            --gradient-accent: linear-gradient(135deg, #10B981 0%, #0891B2 100%);
+            --gradient-dark: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
+            --gradient-mesh: radial-gradient(circle at 20% 50%, rgba(0, 82, 255, 0.1) 0%, transparent 50%),
+                             radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                             radial-gradient(circle at 40% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-glow: 0 0 40px rgba(0, 82, 255, 0.3);
+        }
+
+        /* === GLOBAL STYLES === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            overflow-x: hidden;
+            background: var(--gray-900);
+            color: white;
+        }
+
+        /* === HEADER STYLES === */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .main-header.scrolled {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar {
+            padding: 15px;
+            background: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar.scrolled {
+            background: rgba(15, 23, 42, 0.98) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .header-logo:hover {
+            color: #60a5fa !important;
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-icon i {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .navbar-expand-lg .navbar-nav {
+            gap: 2rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: #d1d5db !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.5rem 0 !important;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link:hover::before,
+        .navbar-nav .nav-link.active::before {
+            width: 100%;
+        }
+
+        .dropdown-menu-custom {
+            background: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 12px;
+            padding: 0.5rem 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .dropdown-item-custom {
+            color: #d1d5db !important;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            padding: 0.75rem 1.5rem !important;
+        }
+
+        .dropdown-item-custom:hover {
+            background: rgba(0, 82, 255, 0.1) !important;
+            color: white !important;
+            padding-left: 2rem !important;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-cta {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(102, 126, 234, 0.3);
+            color: white;
+        }
+
+        .header-cta i {
+            margin-left: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 8px;
+            background: none;
+            position: relative;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .hamburger-line {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: white;
+            margin: 4px 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 1px;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 0 0 12px 12px;
+                margin-top: 1rem;
+                padding: 2rem 1rem;
+            }
+
+            .navbar-nav {
+                text-align: center;
+                gap: 0 !important;
+            }
+
+            .navbar-nav .nav-link {
+                padding: 1rem 0 !important;
+                font-size: 1.1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .header-actions {
+                margin-top: 2rem;
+                justify-content: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+        }
+
+        /* === HERO SLIDER STYLES === */
+        .hero-slider {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: var(--gradient-dark);
+            margin-top: 51px;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide:nth-child(1) {
+            background: var(--gradient-dark), var(--gradient-mesh);
+            background-blend-mode: overlay;
+        }
+
+        .hero-slide:nth-child(2) {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%),
+                        var(--gradient-mesh);
+            background-blend-mode: overlay;
+        }
+
+        .hero-slide:nth-child(3) {
+            background: linear-gradient(135deg, rgba(51, 65, 85, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%),
+                        var(--gradient-mesh);
+            background-blend-mode: overlay;
+        }
+
+        .bg-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(0, 82, 255, 0.1), rgba(99, 102, 241, 0.1));
+            animation: float-shapes 20s linear infinite;
+        }
+
+        .bg-shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 80%;
+            animation-delay: 0s;
+        }
+
+        .bg-shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 70%;
+            left: 10%;
+            animation-delay: 7s;
+            background: linear-gradient(45deg, rgba(16, 185, 129, 0.1), rgba(8, 145, 178, 0.1));
+        }
+
+        .bg-shape:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 30%;
+            left: 5%;
+            animation-delay: 14s;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(99, 102, 241, 0.1));
+        }
+
+        @keyframes float-shapes {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-50px) rotate(180deg);
+                opacity: 0.6;
+            }
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0;
+            animation: advanced-particles 8s linear infinite;
+        }
+
+        .particle:nth-child(odd) {
+            background: var(--accent);
+            animation-duration: 12s;
+        }
+
+        .particle:nth-child(3n) {
+            background: var(--secondary);
+            animation-duration: 10s;
+        }
+
+        @keyframes advanced-particles {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+                transform: translateY(90vh) rotate(36deg) scale(1);
+            }
+            90% {
+                opacity: 0.8;
+                transform: translateY(10vh) rotate(324deg) scale(1);
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-badge i {
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        .hero-title {
+            font-size: 50px !important;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            position: relative;
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            animation: slideInLeft 1s ease-out 1s both;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            font-weight: 400;
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            color: var(--gray-300);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-feature i {
+            color: var(--accent);
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .btn-custom {
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 160px;
+        }
+
+        .btn-primary-custom {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl), var(--shadow-glow);
+            color: white;
+        }
+
+        .btn-secondary-custom {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary-custom:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+
+        .hero-visual {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .visual-container {
+            position: relative;
+            width: 600px;
+            height: 500px;
+            perspective: 1200px;
+        }
+
+        .visual-card {
+            position: absolute;
+            width: 280px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-xl);
+            cursor: pointer;
+        }
+
+        .visual-card:nth-child(1) {
+            top: 50px;
+            left: 50px;
+            transform: rotateY(-20deg) rotateX(15deg);
+            z-index: 3;
+            animation: cardFloat1 6s ease-in-out infinite;
+        }
+
+        .visual-card:nth-child(2) {
+            top: 120px;
+            right: 30px;
+            transform: rotateY(15deg) rotateX(-10deg);
+            z-index: 2;
+            animation: cardFloat2 6s ease-in-out infinite 2s;
+        }
+
+        .visual-card:nth-child(3) {
+            bottom: 100px;
+            left: 150px;
+            transform: rotateY(10deg) rotateX(8deg);
+            z-index: 1;
+            animation: cardFloat3 6s ease-in-out infinite 4s;
+        }
+
+        @keyframes cardFloat1 {
+            0%, 100% {
+                transform: rotateY(-20deg) rotateX(15deg) translateY(0px);
+            }
+            50% {
+                transform: rotateY(-20deg) rotateX(15deg) translateY(-20px);
+            }
+        }
+
+        @keyframes cardFloat2 {
+            0%, 100% {
+                transform: rotateY(15deg) rotateX(-10deg) translateY(0px);
+            }
+            50% {
+                transform: rotateY(15deg) rotateX(-10deg) translateY(-15px);
+            }
+        }
+
+        @keyframes cardFloat3 {
+            0%, 100% {
+                transform: rotateY(10deg) rotateX(8deg) translateY(0px);
+            }
+            50% {
+                transform: rotateY(10deg) rotateX(8deg) translateY(-10px);
+            }
+        }
+
+        .visual-card:hover {
+            transform: rotateY(0deg) rotateX(0deg) translateZ(40px) scale(1.05);
+            box-shadow: var(--shadow-2xl), 0 0 50px rgba(0, 82, 255, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .visual-card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .visual-card-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .visual-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .visual-card p {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+            text-align: center;
+            margin: 0;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.75rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gray-500);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .nav-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .nav-dot::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            background: transparent;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active::before {
+            border-color: rgba(0, 82, 255, 0.3);
+        }
+
+        .slider-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .slider-arrow {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .slider-arrow:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .slider-arrow.prev {
+            left: 30px;
+        }
+
+        .slider-arrow.next {
+            right: 30px;
+        }
+
+        /* === FOOTER STYLES === */
+        .main-footer {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-bg-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .footer-bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(0, 82, 255, 0.05), rgba(99, 102, 241, 0.05));
+            animation: footerFloat 25s linear infinite;
+        }
+
+        .footer-bg-shape:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            top: -200px;
+            right: -200px;
+            animation-delay: 0s;
+        }
+
+        .footer-bg-shape:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            bottom: -150px;
+            left: -150px;
+            animation-delay: 12s;
+            background: linear-gradient(45deg, rgba(16, 185, 129, 0.05), rgba(8, 145, 178, 0.05));
+        }
+
+        @keyframes footerFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+                opacity: 0.6;
+            }
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-top {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand {
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+            color: white;
+        }
+
+        .footer-logo:hover {
+            color: var(--primary-light);
+        }
+
+        .footer-logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .footer-logo-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .footer-brand-text {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .footer-description {
+            color: var(--gray-400);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 400px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .footer-column {
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h5 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+            position: relative;
+        }
+
+        .footer-column h5::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 0.25rem 0;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+            padding-left: 0.5rem;
+        }
+
+        .footer-links a i {
+            margin-right: 0.5rem;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 0.875rem 1rem;
+            color: white;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--gray-500);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(0, 82, 255, 0.1);
+        }
+
+        .newsletter-btn {
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 10px;
+            padding: 0.875rem 1.5rem;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            color: var(--gray-400);
+        }
+
+        .contact-info li i {
+            color: var(--primary);
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .contact-info li strong {
+            color: white;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-copyright {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+
+        .footer-links-bottom {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-links-bottom a {
+            color: var(--gray-500);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links-bottom a:hover {
+            color: var(--primary-light);
+        }
+
+        /* === CONTENT SECTION STYLES === */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+            background: var(--gradient-dark);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl), 0 0 20px rgba(0, 82, 255, 0.2);
+        }
+
+        .feature-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: var(--gray-400);
+            line-height: 1.6;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .process-step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .process-step-content h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .process-step-content p {
+            font-size: 1rem;
+            color: var(--gray-400);
+            line-height: 1.6;
+        }
+
+        .city-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .city-list li {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            color: var(--gray-300);
+            transition: all 0.3s ease;
+        }
+
+        .city-list li:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .testimonial-card p {
+            font-size: 1rem;
+            color: var(--gray-300);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card h5 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .testimonial-card span {
+            font-size: 0.9rem;
+            color: var(--gray-400);
+        }
+
+        .cta-section {
+            background: var(--gradient-primary);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: var(--gray-100);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* === RESPONSIVE DESIGN === */
+        @media (min-width: 1400px) {
+            .hero-content {
+                padding: 3rem 0;
+            }
+
+            .visual-container {
+                width: 750px;
+                height: 600px;
+            }
+
+            .visual-card {
+                width: 340px;
+                height: 240px;
+            }
+
+            .visual-card-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .visual-card h4 {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 1199px) and (min-width: 992px) {
+            .hero-content {
+                padding: 2.5rem 0;
+            }
+
+            .hero-title {
+                font-size: clamp(2.5rem, 5vw, 3.8rem);
+            }
+
+            .visual-container {
+                width: 550px;
+                height: 450px;
+            }
+
+            .visual-card {
+                width: 260px;
+                height: 190px;
+            }
+
+            .visual-card h4 {
+                font-size: 1.1rem;
+            }
+
+            .visual-card p {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .hero-slider {
+                margin-top: 70px;
+                height: 100vh;
+                min-height: 600px;
+            }
+
+            .hero-slide {
+                height: 100vh;
+                min-height: 600px;
+                display: flex;
+                align-items: center;
+            }
+
+            .hero-slide .row {
+                min-height: auto;
+                align-items: center;
+                flex-direction: column-reverse;
+            }
+
+            .hero-content {
+                text-align: center;
+                padding: 2rem 0;
+                order: 2;
+            }
+
+            .hero-visual {
+                order: 1;
+                margin-bottom: 1rem;
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .hero-title {
+                font-size: clamp(2.2rem, 6vw, 3.2rem);
+                margin-bottom: 1.25rem;
+                line-height: 1.2;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1rem, 3vw, 1.15rem);
+                margin-bottom: 1.5rem;
+                max-width: 100%;
+                line-height: 1.5;
+            }
+
+            .hero-features {
+                gap: 1.5rem;
+                justify-content: center;
+                margin-bottom: 2rem;
+                flex-wrap: wrap;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .visual-container {
+                width: 100%;
+                max-width: 450px;
+                height: 280px;
+                margin: 0 auto;
+            }
+
+            .visual-card {
+                width: 200px;
+                height: 140px;
+            }
+
+            .visual-card:nth-child(1) {
+                top: 10px;
+                left: 10px;
+                transform: rotateY(-15deg) rotateX(10deg);
+            }
+
+            .visual-card:nth-child(2) {
+                top: 50px;
+                right: 10px;
+                transform: rotateY(10deg) rotateX(-8deg);
+            }
+
+            .visual-card:nth-child(3) {
+                bottom: 30px;
+                left: 50%;
+                transform: translateX(-50%) rotateY(5deg) rotateX(5deg);
+            }
+
+            .slider-nav {
+                bottom: 20px;
+            }
+
+            .footer-content {
+                padding: 3rem 0 1.5rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links-bottom {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-slider {
+                margin-top: 65px;
+                height: 100vh;
+                min-height: 580px;
+            }
+
+            .hero-slide {
+                height: 100vh;
+                min-height: 580px;
+                padding: 1rem 0;
+            }
+
+            .hero-slide .row {
+                height: 100%;
+                flex-direction: column-reverse;
+                justify-content: center;
+            }
+
+            .hero-content {
+                padding: 1.5rem 0;
+                flex: 0 0 auto;
+            }
+
+            .hero-visual {
+                flex: 0 0 auto;
+                height: 250px;
+                margin-bottom: 1rem;
+            }
+
+            .hero-title {
+                font-size: clamp(1.8rem, 7vw, 2.8rem);
+                margin-bottom: 1rem;
+                line-height: 1.1;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(0.9rem, 4vw, 1.05rem);
+                margin-bottom: 1.25rem;
+                line-height: 1.4;
+            }
+
+            .hero-badge {
+                font-size: 0.8rem;
+                padding: 0.4rem 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-features {
+                gap: 1rem;
+                margin-bottom: 1.5rem;
+                justify-content: center;
+            }
+
+            .hero-feature {
+                font-size: 0.9rem;
+            }
+
+            .hero-buttons {
+                gap: 0.75rem;
+                justify-content: center;
+            }
+
+            .btn-custom {
+                min-width: 140px;
+                padding: 0.75rem 1.25rem;
+                font-size: 0.85rem;
+            }
+
+            .visual-container {
+                width: 100%;
+                max-width: 350px;
+                height: 220px;
+            }
+
+            .visual-card {
+                width: 160px;
+                height: 115px;
+            }
+
+            .visual-card:nth-child(1) {
+                top: 5px;
+                left: 5px;
+            }
+
+            .visual-card:nth-child(2) {
+                top: 35px;
+                right: 5px;
+            }
+
+            .visual-card:nth-child(3) {
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%) rotateY(3deg) rotateX(3deg);
+            }
+
+            .visual-card-icon {
+                width: 45px;
+                height: 45px;
+                margin-bottom: 0.5rem;
+            }
+
+            .visual-card h4 {
+                font-size: 0.9rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .visual-card p {
+                font-size: 0.75rem;
+            }
+
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+
+            .slider-arrow.prev {
+                left: 15px;
+            }
+
+            .slider-arrow.next {
+                right: 15px;
+            }
+
+            .nav-dot {
+                width: 8px;
+                height: 8px;
+            }
+
+            .footer-brand {
+                text-align: center;
+            }
+
+            .footer-description {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-slider {
+                height: 100vh;
+                min-height: 550px;
+            }
+
+            .hero-slide {
+                height: 100vh;
+                min-height: 550px;
+                padding: 0.5rem 0;
+            }
+
+            .hero-content {
+                padding: 1rem 0;
+            }
+
+            .hero-visual {
+                height: 200px;
+                margin-bottom: 0.5rem;
+            }
+
+            .hero-title {
+                font-size: clamp(1.6rem, 8vw, 2.4rem);
+                line-height: 1.1;
+                margin-bottom: 0.75rem;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(0.85rem, 4.5vw, 0.95rem);
+                margin-bottom: 1rem;
+                line-height: 1.3;
+            }
+
+            .hero-badge {
+                font-size: 0.75rem;
+                padding: 0.35rem 0.8rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .hero-features {
+                gap: 0.75rem;
+                margin-bottom: 1.25rem;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-feature {
+                font-size: 0.8rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.5rem;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .btn-custom {
+                width: 100%;
+                min-width: auto;
+                padding: 0.7rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .visual-container {
+                width: 100%;
+                max-width: 280px;
+                height: 180px;
+                margin: 0 auto;
+            }
+
+            .visual-card {
+                width: 130px;
+                height: 90px;
+            }
+
+            .visual-card:nth-child(1) {
+                top: 5px;
+                left: 5px;
+            }
+
+            .visual-card:nth-child(2) {
+                top: 25px;
+                right: 5px;
+            }
+
+            .visual-card:nth-child(3) {
+                bottom: 15px;
+                left: 50%;
+                transform: translateX(-50%) rotateY(2deg) rotateX(2deg);
+            }
+
+            .visual-card-icon {
+                width: 35px;
+                height: 35px;
+                margin-bottom: 0.25rem;
+            }
+
+            .visual-card-icon i {
+                font-size: 1rem;
+            }
+
+            .visual-card h4 {
+                font-size: 0.8rem;
+                margin-bottom: 0.125rem;
+            }
+
+            .visual-card p {
+                font-size: 0.65rem;
+            }
+
+            .slider-arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 0.8rem;
+            }
+
+            .slider-arrow.prev {
+                left: 10px;
+            }
+
+            .slider-arrow.next {
+                right: 10px;
+            }
+
+            .footer-links-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero-slider {
+                height: 100vh;
+                min-height: 480px;
+            }
+
+            .hero-slide {
+                height: 100vh;
+                min-height: 480px;
+            }
+
+            .hero-content {
+                padding: 0.75rem 0;
+            }
+
+            .hero-visual {
+                height: 120px;
+            }
+
+            .hero-title {
+                font-size: 1.3rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.75rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .hero-badge {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.7rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .hero-features {
+                gap: 0.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-feature {
+                font-size: 0.75rem;
+            }
+
+            .visual-container {
+                max-width: 200px;
+                height: 100px;
+            }
+
+            .visual-card {
+                width: 90px;
+                height: 60px;
+            }
+
+            .visual-card-icon {
+                width: 25px;
+                height: 25px;
+                margin-bottom: 0.125rem;
+            }
+
+            .visual-card h4 {
+                font-size: 0.65rem;
+                margin-bottom: 0.05rem;
+            }
+
+            .visual-card p {
+                font-size: 0.55rem;
+            }
+
+            .btn-custom {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- === HEADER SECTION === -->
+    <header class="main-header fixed-top" id="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand header-logo" href="#home">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <span>Web EASY Experts</span>
+                </a>
+
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#services" data-bs-toggle="dropdown">Services</a>
+                            <ul class="dropdown-menu dropdown-menu-custom">
+                                <li><a class="dropdown-item dropdown-item-custom" href="#services">
+                                        <i class="fas fa-code me-2"></i>Web Development
+                                    </a></li>
+                                <li><a class="dropdown-item dropdown-item-custom" href="#services">
+                                        <i class="fa-brands fa-wordpress me-2"></i>Wordpress Design
+                                    </a></li>
+                                <li><a class="dropdown-item dropdown-item-custom" href="#services">
+                                        <i class="fa-brands fa-shopify me-2"></i>Shopify
+                                    </a></li>
+                                <li><a class="dropdown-item dropdown-item-custom" href="#services">
+                                        <i class="fa-brands fa-wix me-2"></i>Wix
+                                    </a></li>
+                                <li><a class="dropdown-item dropdown-item-custom" href="#services">
+                                        <i class="fa-solid fa-rocket me-2"></i>SEO
+                                    </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#why-us">Why Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#process">Process</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#testimonials">Testimonials</a>
+                        </li>
+                    </ul>
+
+                    <!-- Header Actions -->
+                    <div class="header-actions d-flex align-items-center">
+                        <a href="#contact" class="header-cta">
+                            Get Started
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- === HERO SLIDER SECTION === -->
+    <section class="hero-slider" id="home">
+        <!-- Animated Background Shapes -->
+        <div class="bg-shapes">
+            <div class="bg-shape"></div>
+            <div class="bg-shape"></div>
+            <div class="bg-shape"></div>
+        </div>
+
+        <!-- Floating Particles -->
+        <div class="particles"></div>
+
+        <!-- Slide 1: Web Design & Development -->
+        <div class="hero-slide active">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 hero-content">
+                        <div class="hero-badge">
+                            <i class="fas fa-star"></i>
+                            Leading Indian Agency for Australia
+                        </div>
+                        <h1 class="hero-title">
+                            Web EASY Experts – Leading Indian Web Design Company for Australian Businesses
+                        </h1>
+                        <p class="hero-subtitle">
+                            Welcome to Web EASY Experts, your trusted one of leading company for website design and development in Australia. We are an India-based agency known for delivering world-class websites at highly competitive prices to businesses all across Australia.
+                        </p>
+                        <div class="hero-features">
+                            <div class="hero-feature"><i class="fas fa-bolt"></i>Fast Load Speed</div>
+                            <div class="hero-feature"><i class="fas fa-search"></i>SEO Friendly Structure</div>
+                            <div class="hero-feature"><i class="fas fa-mobile-alt"></i>Mobile Responsive First Layout</div>
+                            <div class="hero-feature"><i class="fas fa-paint-brush"></i>Clean & Modern UI/UX</div>
+                            <div class="hero-feature"><i class="fas fa-cogs"></i>Easy Content Management System</div>
+                        </div>
+                        <div class="hero-buttons">
+                            <a href="#contact" class="btn btn-primary-custom">
+                                <i class="fas fa-rocket me-2"></i>Schedule a Free Consultation
+                            </a>
+                            <a href="#services" class="btn btn-secondary-custom">
+                                <i class="fas fa-eye me-2"></i>View Services
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 hero-visual">
+                        <div class="visual-container">
+                            <div class="visual-card">
+                                <div class="visual-card-icon"><i class="fab fa-wordpress"></i></div>
+                                <h4>WordPress Development</h4>
+                                <p>Custom themes & plugins</p>
+                            </div>
+                            <div class="visual-card">
+                                <div class="visual-card-icon"><i class="fab fa-shopify"></i></div>
+                                <h4>eCommerce Solutions</h4>
+                                <p>Shopify, WooCommerce & more</p>
+                            </div>
+                            <div class="visual-card">
+                                <div class="visual-card-icon"><i class="fas fa-code"></i></div>
+                                <h4>Custom Development</h4>
+                                <p>Laravel, ReactJS, PHP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Australian Market Focus -->
+        <div class="hero-slide">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 hero-content">
+                        <div class="hero-badge">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Nationwide Coverage
+                        </div>
+                        <h1 class="hero-title">
+                            Our Top Level Web Design Services in Australia – Built for Impact
+                        </h1>
+                        <p class="hero-subtitle">
+                            We serve all major cities including: Sydney, Melbourne, Brisbane, Perth, Adelaide, Canberra, Gold Coast, Sunshine Coast, Darwin, Alice Springs.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#contact" class="btn btn-primary-custom">
+                                <i class="fas fa-rocket me-2"></i>Start Your Project
+                            </a>
+                            <a href="#services" class="btn btn-secondary-custom">
+                                <i class="fas fa-eye me-2"></i>View Services
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 hero-visual">
+                        <div class="visual-container">
+                            <div class="visual-card">
+                                <div class="visual-card-icon"><i class="fas fa-map"></i></div>
+                                <h4>Major Cities</h4>
+                                <p>Sydney, Melbourne, Brisbane, Perth, Adelaide, Canberra, Gold Coast, Sunshine Coast, Darwin, Alice Springs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Industries & Solutions -->
+        <div class="hero-slide">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 hero-content">
+                        <div class="hero-badge">
+                            <i class="fas fa-briefcase"></i>
+                            Industry-Specific Solutions
+                        </div>
+                        <h1 class="hero-title">
+                            Trusted by Large and Small Businesses in Australia
+                        </h1>
+                        <p class="hero-subtitle">
+                            We proudly serve startups, SMEs, and enterprises across industries: Retail & eCommerce, Health & Fitness, Real Estate, Construction & Trades, Finance & Consulting, Hospitality & Events, Education & Coaching.
+                        </p>
+                        <div class="hero-features">
+                            <div class="hero-feature"><i class="fas fa-store"></i>Retail & eCommerce</div>
+                            <div class="hero-feature"><i class="fas fa-home"></i>Real Estate</div>
+                            <div class="hero-feature"><i class="fas fa-utensils"></i>Hospitality & Events</div>
+                            <div class="hero-feature"><i class="fas fa-briefcase"></i>Finance & Consulting</div>
+                        </div>
+                        <div class="hero-buttons">
+                            <a href="#contact" class="btn btn-primary-custom">
+                                <i class="fas fa-rocket me-2"></i>Start Your Project
+                            </a>
+                            <a href="#services" class="btn btn-secondary-custom">
+                                <i class="fas fa-eye me-2"></i>View Services
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 hero-visual">
+                        <div class="visual-container">
+                            <div class="visual-card">
+                                <div class="visual-card-icon"><i class="fas fa-heartbeat"></i></div>
+                                <h4>Health & Fitness</h4>
+                                <p>Medical & wellness websites</p>
+                            </div>
+                            <div class="visual-card">
+                                <div class="visual-card-icon"><i class="fas fa-hammer"></i></div>
+                                <h4>Construction & Trades</h4>
+                                <p>Professional service sites</p>
+                            </div>
+                            <div class="visual-card">
+                                <div class="visual-card-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <h4>Education & Coaching</h4>
+                                <p>Learning platforms & courses</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Navigation -->
+        <div class="slider-nav">
+            <div class="nav-dot active" data-slide="0"></div>
+            <div class="nav-dot" data-slide="1"></div>
+            <div class="nav-dot" data-slide="2"></div>
+        </div>
+
+        <!-- Slider Arrows -->
+        <div class="slider-arrows prev slider-arrow">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="slider-arrows next slider-arrow">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </section>
+
+    <!-- === WHY US SECTION === -->
+    <section class="section" id="why-us">
+        <div class="container">
+            <h2 class="section-title">Why We’re the Best Website Design & Development Company in Australia</h2>
+            <p class="section-subtitle">Choosing Web EASY Experts means choosing:</p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Australian-Focused Strategy</h4>
+                        <p>We build for your audience. All designs are tailored for Australian industries and users.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-code"></i>
+                        <h4>Platform-Specific Teams</h4>
+                        <p>WordPress, Shopify, Laravel, ReactJS, or custom PHP – we assign dedicated developers for each platform.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h4>Affordable Development</h4>
+                        <p>Our India-based pricing means massive cost savings for you, without cutting corners on quality.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-bullseye"></i>
+                        <h4>Result-Driven Approach</h4>
+                        <p>From web design-development to SEO, we focus on achieving your business goals.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-comments"></i>
+                        <h4>Transparent Communication</h4>
+                        <p>You’ll get regular updates, clear timelines, and easy collaboration tools for hassle-free project delivery.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-tools"></i>
+                        <h4>Nominal Maintenance Cost</h4>
+                        <p>Enjoy long-term durability with minimal upkeep expenses, keeping your project cost-efficient.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-edit"></i>
+                        <h4>No Cost For Minor Changes</h4>
+                        <p>Small tweaks and adjustments are included at no extra charge, offering flexibility without added expense.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === PROCESS SECTION === -->
+    <section class="section" id="process">
+        <div class="container">
+            <h2 class="section-title">Our Web Design & Development Process</h2>
+            <p class="section-subtitle">We follow research and development process to ensure smooth project execution and outstanding results:</p>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="process-step">
+                        <div class="process-step-number">1</div>
+                        <div class="process-step-content">
+                            <h4>Discovery & Consultation</h4>
+                            <p>We start by understanding your goals, business type, competitors, and target audience in Australia.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">2</div>
+                        <div class="process-step-content">
+                            <h4>Wireframing & Design Concepts</h4>
+                            <p>Our website designers’ team creates layout ideas and mockups, keeping Australian UX best practices and mobile responsiveness in mind.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">3</div>
+                        <div class="process-step-content">
+                            <h4>Development Phase</h4>
+                            <p>Our expert web developers’ team build your website using clean code, with full integration of CMS or eCommerce platforms as needed.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">4</div>
+                        <div class="process-step-content">
+                            <h4>Quality Testing & Optimization</h4>
+                            <p>We test across devices and browsers, optimize page speed, and make sure everything works perfectly before launch.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">5</div>
+                        <div class="process-step-content">
+                            <h4>Launch & Ongoing Support</h4>
+                            <p>Once approved, we launch your site and offer continued support, maintenance, and updates as your business grows.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === COST SECTION === -->
+    <section class="section" id="cost">
+        <div class="container">
+            <h2 class="section-title">Cost of Website Development in Australia — Save with Web EASY Experts</h2>
+            <p class="section-subtitle">Website development in Australia typically ranges from AUD 3,000 to AUD 15,000+ depending on the complexity. At Web EASY Experts, you get the same quality starting from a lower budget – thanks to our India-based efficiency and low overheads.</p>
+            <p class="section-subtitle">We offer fixed-cost packages and custom pricing for startups, SMEs, and large enterprises.</p>
+            <div class="text-center">
+                <a href="#contact" class="btn btn-primary-custom">
+                    <i class="fas fa-rocket me-2"></i>Get a Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- === TASMANIA SECTION === -->
+    <section class="section" id="tasmania">
+        <div class="container">
+            <h2 class="section-title">Tasmania – We Serve Local Businesses Too</h2>
+            <p class="section-subtitle">At Web EASY Experts, we’re proud to support businesses not just in mainland cities, but also in Tasmania — including Hobart, Launceston, Devonport, and nearby towns.</p>
+            <p class="section-subtitle">Whether you’re a tourism operator, café owner, tradesperson, or creative agency in Tasmania, we deliver affordable, professionally built websites tailored to your local audience and business goals.</p>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Fast-loading websites</h4>
+                        <p>Optimized for local Tasmanian search</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-industry"></i>
+                        <h4>Industry-specific designs</h4>
+                        <p>For retail, tourism, trades, and more</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Localized support hours</h4>
+                        <p>Quick turnaround</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h4>Affordable pricing</h4>
+                        <p>For regional startups and growing businesses</p>
+                    </div>
+                </div>
+            </div>
+            <p class="section-subtitle mt-4">You don’t need a big-city budget to get a high-performing website. Web EASY Experts brings agency-quality design to businesses across Tasmania.</p>
+        </div>
+    </section>
+
+    <!-- === WEB DESIGNER SECTION === -->
+    <section class="section" id="web-designer">
+        <div class="container">
+            <h2 class="section-title">Looking for a Web Designer in Australia?</h2>
+            <p class="section-subtitle">Get the same quality and creativity you'd expect from a local web designer in Australia, without the inflated cost. Our remote team works on your schedule, offers regular Zoom/Meet consultations, and delivers on time.</p>
+            <div class="row g-4">
+                <div class="col-lg-12">
+                    <h4 class="text-center mb-3" style="color: white;">Each site we design includes:</h4>
+                    <ul class="city-list">
+                        <li><i class="fas fa-check me-2"></i>Mobile Responsive First Layout</li>
+                        <li><i class="fas fa-check me-2"></i>Clean & Modern UI/UX</li>
+                        <li><i class="fas fa-check me-2"></i>Fast Load Speed</li>
+                        <li><i class="fas fa-check me-2"></i>SEO Friendly Structure</li>
+                        <li><i class="fas fa-check me-2"></i>Easy Content Management System</li>
+                    </ul>
+                </div>
+            </div>
+                   </div>
+            <div class="text-center mt-4">
+                <a href="#contact" class="btn btn-primary-custom">
+                    <i class="fas fa-rocket me-2"></i>Contact Our Designers
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- === TESTIMONIALS SECTION === -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle">Hear from businesses across Australia who trust Web EASY Experts for their web design and development needs.</p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <p>"Web EASY Experts transformed our online presence with a stunning, user-friendly website. Their team was professional, responsive, and delivered on time."</p>
+                        <h5>John Mitchell</h5>
+                        <span>Retail Business Owner, Sydney</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <p>"The affordability and quality blew us away. Our new eCommerce site has driven more sales, and their SEO expertise got us ranking fast!"</p>
+                        <h5>Sarah Thompson</h5>
+                        <span>eCommerce Startup, Melbourne</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <p>"As a small business in Tasmania, we needed a cost-effective solution. Web EASY delivered a beautiful site that perfectly suits our local market."</p>
+                        <h5>Emma Wilson</h5>
+                        <span>Café Owner, Hobart</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === CTA SECTION === -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Elevate Your Online Presence?</h2>
+            <p>Let Web EASY Experts build a website that drives results for your Australian business. Contact us today for a free consultation or a custom quote!</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="#contact" class="btn btn-primary-custom">
+                    <i class="fas fa-rocket me-2"></i>Get Started
+                </a>
+                <a href="#services" class="btn btn-secondary-custom">
+                    <i class="fas fa-eye me-2"></i>Explore Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- === FOOTER SECTION === -->
+    <footer class="main-footer">
+        <!-- Footer Background Shapes -->
+        <div class="footer-bg-shapes">
+            <div class="footer-bg-shape"></div>
+            <div class="footer-bg-shape"></div>
+        </div>
+
+        <!-- Footer Content -->
+        <div class="footer-content">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 footer-brand">
+                            <a href="#home" class="footer-logo">
+                                <div class="footer-logo-icon">
+                                    <i class="fa-solid fa-globe"></i>
+                                </div>
+                                <span class="footer-brand-text">Web EASY Experts</span>
+                            </a>
+                            <p class="footer-description">
+                                Web EASY Experts is an India-based web design and development agency serving businesses across Australia with world-class, affordable solutions.
+                            </p>
+                            <div class="footer-social">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 footer-column">
+                            <h5>Services</h5>
+                            <ul class="footer-links">
+                                <li><a href="#services"><i class="fas fa-code"></i>Web Development</a></li>
+                                <li><a href="#services"><i class="fa-brands fa-wordpress"></i>WordPress Design</a></li>
+                                <li><a href="#services"><i class="fa-brands fa-shopify"></i>Shopify</a></li>
+                                <li><a href="#services"><i class="fa-brands fa-wix"></i>Wix</a></li>
+                                <li><a href="#services"><i class="fa-solid fa-rocket"></i>SEO</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2 col-md-6 footer-column">
+                            <h5>Quick Links</h5>
+                            <ul class="footer-links">
+                                <li><a href="#home"><i class="fas fa-home"></i>Home</a></li>
+                                <li><a href="#why-us"><i class="fas fa-check-circle"></i>Why Us</a></li>
+                                <li><a href="#process"><i class="fas fa-cogs"></i>Process</a></li>
+                                <li><a href="#testimonials"><i class="fas fa-quote-left"></i>Testimonials</a></li>
+                                <li><a href="#contact"><i class="fas fa-envelope"></i>Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-md-6 footer-column">
+                            <h5>Contact Info</h5>
+                            <ul class="contact-info">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <strong>Address</strong>
+                                        India (Serving Australia Nationwide)
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <strong>Email</strong>
+                                        <a href="mailto:info@webeasyexperts.com">info@webeasyexperts.com</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone-alt"></i>
+                                    <div>
+                                        <strong>Phone</strong>
+                                        <a href="tel:+1234567890">+1 (234) 567-890</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <h5 class="mt-4">Newsletter</h5>
+                            <form class="newsletter-form">
+                                <input type="email" class="newsletter-input" placeholder="Enter your email">
+                                <button type="submit" class="newsletter-btn">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="footer-copyright">
+                        &copy; 2025 Web EASY Experts. All Rights Reserved.
+                    </p>
+                    <ul class="footer-links-bottom">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- === JAVASCRIPT === -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Hero Slider Functionality
+        const slides = document.querySelectorAll('.hero-slide');
+        const navDots = document.querySelectorAll('.nav-dot');
+        const prevArrow = document.querySelector('.slider-arrow.prev');
+        const nextArrow = document.querySelector('.slider-arrow.next');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function goToSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            navDots[currentSlide].classList.remove('active');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            navDots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopSlider() {
+            clearInterval(slideInterval);
+        }
+
+        navDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                stopSlider();
+                goToSlide(index);
+                startSlider();
+            });
+        });
+
+        prevArrow.addEventListener('click', () => {
+            stopSlider();
+            prevSlide();
+            startSlider();
+        });
+
+        nextArrow.addEventListener('click', () => {
+            stopSlider();
+            nextSlide();
+            startSlider();
+        });
+
+        // Start the slider
+        startSlider();
+
+        // Generate Particles
+        const particlesContainer = document.querySelector('.particles');
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.width = `${Math.random() * 4 + 2}px`;
+            particle.style.height = particle.style.width;
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.animationDelay = `${Math.random() * 8}s`;
+            particlesContainer.appendChild(particle);
+        }
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Newsletter Form Submission
+        document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = document.querySelector('.newsletter-input');
+            if (emailInput.value) {
+                alert('Thank you for subscribing!');
+                emailInput.value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+    </script>
+</body>
+</html>
