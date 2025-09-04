@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web EASY Experts</title>
+    <!-- External CSS Dependencies -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* === CUSTOM CSS VARIABLES === */
+        :root {
+            --primary: #0052FF;
+            --primary-dark: #0041CC;
+            --primary-light: #4285FF;
+            --secondary: #6366F1;
+            --accent: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-400: #94A3B8;
+            --gray-500: #64748B;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1E293B;
+            --gray-900: #0F172A;
+            --gradient-primary: linear-gradient(135deg, #0052FF 0%, #6366F1 100%);
+            --gradient-dark: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* === GLOBAL STYLES === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            overflow-x: hidden;
+            background: var(--gray-900);
+            color: white;
+        }
+
+        /* === HEADER STYLES START === */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar {
+            padding: 15px;
+            background: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: #d1d5db !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: white !important;
+        }
+
+        .header-cta {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-menu-custom {
+            background: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .dropdown-item-custom {
+            color: #d1d5db !important;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item-custom:hover {
+            background: rgba(0, 82, 255, 0.1) !important;
+            color: white !important;
+        }
+        /* === HEADER STYLES END === */
+
+        /* === HERO SECTION STYLES START === */
+        .hero-slider {
+            min-height: 100vh;
+            position: relative;
+            background: var(--gradient-dark);
+            padding-top: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-slide {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content {
+            padding: 2rem 0;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            color: var(--gray-300);
+            font-size: 0.9rem;
+        }
+
+        .hero-feature i {
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-custom {
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn-primary-custom {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+        }
+
+        .btn-secondary-custom {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .btn-primary-custom:hover,
+        .btn-secondary-custom:hover {
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Simplified Visual Cards - No Complex Floating */
+        .hero-visual {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .simple-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .simple-visual-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .simple-visual-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .simple-card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .simple-card-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .simple-visual-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .simple-visual-card p {
+            font-size: 0.9rem;
+            color: var(--gray-400);
+            margin: 0;
+        }
+        /* === HERO SECTION STYLES END === */
+
+        /* === SECTION STYLES START === */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(0, 82, 255, 0.1), rgba(99, 102, 241, 0.1));
+            border: 1px solid rgba(0, 82, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            color: var(--primary-light);
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-300);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .bg-section {
+            background: var(--gradient-dark);
+            position: relative;
+        }
+        /* === SECTION STYLES END === */
+
+        /* === CARD STYLES START === */
+        .feature-card,
+        .service-card,
+        .process-card,
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .feature-card:hover,
+        .service-card:hover,
+        .process-card:hover,
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(0, 82, 255, 0.3);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .card-icon i {
+            font-size: 28px;
+            color: white;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .card-text {
+            color: var(--gray-300);
+            line-height: 1.6;
+            text-align: center;
+        }
+        /* === CARD STYLES END === */
+
+        /* === STATS GRID START === */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray-400);
+        }
+        /* === STATS GRID END === */
+
+        /* === FOOTER STYLES START === */
+        .main-footer {
+            background: var(--gradient-dark);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .footer-description {
+            color: var(--gray-400);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .footer-column h5 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            color: var(--gray-400);
+        }
+
+        .contact-info li i {
+            color: var(--primary);
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+            width: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            color: white;
+        }
+
+        .newsletter-btn {
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            margin-top: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-copyright {
+            color: var(--gray-500);
+        }
+
+        .footer-links-bottom {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links-bottom a {
+            color: var(--gray-500);
+            text-decoration: none;
+        }
+        /* === FOOTER STYLES END === */
+
+        /* === RESPONSIVE STYLES START === */
+        @media (max-width: 768px) {
+            .hero-slider {
+                padding-top: 70px;
+                min-height: auto;
+            }
+
+            .hero-slide {
+                min-height: calc(100vh - 70px);
+                padding: 2rem 0;
+            }
+
+            .hero-title {
+                font-size: clamp(2rem, 6vw, 3rem);
+                margin-bottom: 1rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.75rem;
+            }
+
+            .simple-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .simple-visual-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .simple-card-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: clamp(1.75rem, 5vw, 2.5rem);
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links-bottom {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content {
+                padding: 1rem 0;
+            }
+
+            .hero-title {
+                font-size: clamp(1.75rem, 7vw, 2.5rem);
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+        /* === RESPONSIVE STYLES END === */
+    </style>
+</head>
+
+<body>
+    <!-- === HEADER SECTION START === -->
+    <header class="main-header" id="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand header-logo" href="#">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <span>Web EASY Experts</span>
+                </a>
+
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#services" data-bs-toggle="dropdown">Services</a>
+                            <ul class="dropdown-menu dropdown-menu-custom">
+                                <li><a class="dropdown-item dropdown-item-custom" href="#">
+                                        <i class="fas fa-code me-2"></i>Web Development
+                                    </a></li>
+                                <li><a class="dropdown-item dropdown-item-custom" href="#">
+                                        <i class="fa-brands fa-wordpress me-2"></i>WordPress Design
+                                    </a></li>
+                                <li><a class="dropdown-item dropdown-item-custom" href="#">
+                                        <i class="fa-brands fa-shopify me-2"></i>Shopify
+                                    </a></li>
+                                <li><a class="dropdown-item dropdown-item-custom" href="#">
+                                        <i class="fa-brands fa-wix me-2"></i>Wix
+                                    </a></li>
+                                <li><a class="dropdown-item dropdown-item-custom" href="#">
+                                        <i class="fa-solid fa-rocket me-2"></i>SEO
+                                    </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+
+                    <!-- Header Actions -->
+                    <div class="header-actions">
+                        <a href="#contact" class="header-cta">
+                            Get Started
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- === HEADER SECTION END === -->
+
+    <!-- === HERO SECTION START === -->
+    <section class="hero-slider bg-section" id="home">
+        <div class="container">
+            <div class="hero-slide">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6">
+                        <div class="hero-content">
+                            <div class="hero-badge">
+                                <i class="fas fa-star me-2"></i>
+                                Leading Indian Agency for Australia
+                            </div>
+                            <h1 class="hero-title">
+                                Stunning Websites for Australian Businesses
+                            </h1>
+                            <p class="hero-subtitle">
+                                Web EASY Experts delivers world-class website design and development at competitive prices, tailored for the Australian market.
+                            </p>
+                            <div class="hero-features">
+                                <div class="hero-feature">
+                                    <i class="fas fa-bolt"></i>Fast Loading Speed
+                                </div>
+                                <div class="hero-feature">
+                                    <i class="fas fa-search"></i>SEO Optimized
+                                </div>
+                                <div class="hero-feature">
+                                    <i class="fas fa-mobile-alt"></i>Mobile Responsive
+                                </div>
+                                <div class="hero-feature">
+                                    <i class="fas fa-paint-brush"></i>Clean & Modern UI/UX
+                                </div>
+                                <div class="hero-feature">
+                                    <i class="fas fa-cogs"></i>Easy Content Management
+                                </div>
+                            </div>
+                            <div class="hero-buttons">
+                                <a href="#contact" class="btn btn-primary-custom">
+                                    <i class="fas fa-rocket me-2"></i>Get Started
+                                </a>
+                                <a href="#services" class="btn btn-secondary-custom">
+                                    <i class="fas fa-eye me-2"></i>View Services
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="hero-visual">
+                            <div class="simple-cards-grid">
+                                <div class="simple-visual-card">
+                                    <div class="simple-card-icon">
+                                        <i class="fab fa-wordpress"></i>
+                                    </div>
+                                    <h4>WordPress Development</h4>
+                                    <p>Custom themes & plugins</p>
+                                </div>
+                                <div class="simple-visual-card">
+                                    <div class="simple-card-icon">
+                                        <i class="fab fa-shopify"></i>
+                                    </div>
+                                    <h4>eCommerce Solutions</h4>
+                                    <p>Shopify, WooCommerce & more</p>
+                                </div>
+                                <div class="simple-visual-card">
+                                    <div class="simple-card-icon">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <h4>Custom Development</h4>
+                                    <p>Laravel, ReactJS, PHP</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- === HERO SECTION END === -->
+
+    <!-- === ABOUT SECTION START === -->
+    <section class="section-padding bg-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-award"></i>
+                    Leading Indian Agency for Australia
+                </div>
+                <h2 class="section-title">
+                    Web EASY Experts – Leading Indian Web Design Company for Australian Businesses
+                </h2>
+                <p class="section-subtitle">
+                    Your trusted one of leading company for website design and development in Australia. We are an India-based agency known for delivering world-class websites at highly competitive prices.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <h3 class="mb-4" style="color: white; font-size: 2rem; font-weight: 700;">
+                        Why We're the Best Website Design & Development Company in Australia
+                    </h3>
+                    <p class="mb-4" style="color: var(--gray-300); font-size: 1.1rem; line-height: 1.7;">
+                        With years of experience and a deep understanding of the Australian market, we help local brands build visually stunning, fast, and SEO-optimized websites that generate real results.
+                    </p>
+                    
+                    <!-- Feature List -->
+                    <div class="mb-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="card-icon me-3" style="width: 50px; height: 50px; margin: 0;">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: white; margin-bottom: 0.5rem;">Australian-Focused Strategy</h5>
+                                <p style="color: var(--gray-300); margin: 0;">We build for your audience. All designs are tailored for Australian industries and users.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="card-icon me-3" style="width: 50px; height: 50px; margin: 0;">
+                                <i class="fas fa-users-cog"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: white; margin-bottom: 0.5rem;">Platform-Specific Teams</h5>
+                                <p style="color: var(--gray-300); margin: 0;">WordPress, Shopify, Laravel, ReactJS, or custom PHP – we assign dedicated developers for each platform.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start">
+                            <div class="card-icon me-3<div class="card-icon me-3" style="width: 50px; height: 50px; margin: 0;">
+                                <i class="fas fa-users-cog"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: white; margin-bottom: 0.5rem;">Platform-Specific Teams</h5>
+                                <p style="color: var(--gray-300); margin: 0;">WordPress, Shopify, Laravel, ReactJS, or custom PHP – we assign dedicated developers for each platform.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="card-icon me-3" style="width: 50px; height: 50px; margin: 0;">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: white; margin-bottom: 0.5rem;">Affordable Development</h5>
+                                <p style="color: var(--gray-300); margin: 0;">Our India-based pricing means massive cost savings for you, without cutting corners on quality.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start">
+                            <div class="card-icon me-3" style="width: 50px; height: 50px; margin: 0;">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: white; margin-bottom: 0.5rem;">Transparent Communication</h5>
+                                <p style="color: var(--gray-300); margin: 0;">Regular updates, clear timelines, and easy collaboration tools for hassle-free project delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Projects Delivered</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">60%</div>
+                            <div class="stat-label">Cost Savings</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support Available</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- === ABOUT SECTION END === -->
+
+    <!-- === SERVICES SECTION START === -->
+    <section class="section-padding" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-cogs"></i>
+                    Our Services
+                </div>
+                <h2 class="section-title">
+                    Top Level Web Design Services in Australia
+                </h2>
+                <p class="section-subtitle">
+                    We serve all major cities including Sydney, Melbourne, Brisbane, Perth, Adelaide, Canberra, Gold Coast, Sunshine Coast, Darwin, Alice Springs, and Tasmania.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="card-icon">
+                            <i class="fab fa-wordpress"></i>
+                        </div>
+                        <h4 class="card-title">WordPress Development</h4>
+                        <p class="card-text">Custom WordPress themes, plugins, and complete website solutions optimized for Australian businesses.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="card-icon">
+                            <i class="fab fa-shopify"></i>
+                        </div>
+                        <h4 class="card-title">eCommerce Solutions</h4>
+                        <p class="card-text">Shopify, WooCommerce, and Magento stores that convert visitors into customers with seamless user experience.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="card-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 class="card-title">Custom Development</h4>
+                        <p class="card-text">Laravel, ReactJS, Angular, Node.js, PHP, and MySQL solutions tailored to your specific business needs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="card-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4 class="card-title">Mobile Responsive Design</h4>
+                        <p class="card-text">Mobile-first approach ensuring your website looks perfect on all devices and screen sizes.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="card-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4 class="card-title">SEO Optimization</h4>
+                        <p class="card-text">Search engine optimized websites that rank higher in Google and drive organic traffic to your business.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="card-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4 class="card-title">Maintenance & Support</h4>
+                        <p class="card-text">Nominal maintenance costs with no charges for minor changes. Long-term support for your website.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Industries We Serve -->
+            <div class="mt-5">
+                <div class="text-center mb-4">
+                    <h3 style="color: white; font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">Industries We Serve</h3>
+                    <p style="color: var(--gray-300); font-size: 1.1rem;">From startups to enterprises, we deliver premium design across all sectors</p>
+                </div>
+                <div class="row g-3">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="text-center p-3" style="background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                            <i class="fas fa-shopping-cart" style="color: var(--primary); font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            <h6 style="color: white; margin: 0;">Retail & eCommerce</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="text-center p-3" style="background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                            <i class="fas fa-heartbeat" style="color: var(--primary); font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            <h6 style="color: white; margin: 0;">Health & Fitness</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="text-center p-3" style="background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                            <i class="fas fa-home" style="color: var(--primary); font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            <h6 style="color: white; margin: 0;">Real Estate</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="text-center p-3" style="background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                            <i class="fas fa-hammer" style="color: var(--primary); font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            <h6 style="color: white; margin: 0;">Construction & Trades</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="text-center p-3" style="background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                            <i class="fas fa-chart-line" style="color: var(--primary); font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            <h6 style="color: white; margin: 0;">Finance & Consulting</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="text-center p-3" style="background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                            <i class="fas fa-utensils" style="color: var(--primary); font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            <h6 style="color: white; margin: 0;">Hospitality & Events</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="text-center p-3" style="background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                            <i class="fas fa-graduation-cap" style="color: var(--primary); font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            <h6 style="color: white; margin: 0;">Education & Coaching</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="text-center p-3" style="background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                            <i class="fas fa-map-marked-alt" style="color: var(--primary); font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            <h6 style="color: white; margin: 0;">Tasmania Tourism</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- === SERVICES SECTION END === -->
+
+    <!-- === PROCESS SECTION START === -->
+    <section class="section-padding bg-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-cogs"></i>
+                    Our Process
+                </div>
+                <h2 class="section-title">
+                    Our Web Design & Development Process
+                </h2>
+                <p class="section-subtitle">
+                    We follow a research and development process to ensure smooth project execution and outstanding results.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="process-card">
+                        <div class="card-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4 class="card-title">1. Discovery & Consultation</h4>
+                        <p class="card-text">We start by understanding your goals, business type, competitors, and target audience in Australia.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="process-card">
+                        <div class="card-icon">
+                            <i class="fas fa-draw-polygon"></i>
+                        </div>
+                        <h4 class="card-title">2. Wireframing & Design Concepts</h4>
+                        <p class="card-text">Our designers create layout ideas and mockups, keeping Australian UX best practices and mobile responsiveness in mind.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="process-card">
+                        <div class="card-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 class="card-title">3. Development Phase</h4>
+                        <p class="card-text">Our expert developers build your website using clean code, with full integration of CMS or eCommerce platforms as needed.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="process-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <h4 class="card-title">4. Quality Testing & Optimization</h4>
+                        <p class="card-text">We test across devices and browsers, optimize page speed, and make sure everything works perfectly before launch.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="process-card">
+                        <div class="card-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4 class="card-title">5. Launch & Ongoing Support</h4>
+                        <p class="card-text">Once approved, we launch your site and offer continued support, maintenance, and updates as your business grows.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="process-card">
+                        <div class="card-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="card-title">100% Satisfaction Guarantee</h4>
+                        <p class="card-text">We're confident you'll love your new website — and we back it with a 100% satisfaction guarantee.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- === PROCESS SECTION END === -->
+
+    <!-- === TESTIMONIALS SECTION START === -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-star"></i>
+                    Client Testimonials
+                </div>
+                <h2 class="section-title">
+                    Trusted by Australian Businesses
+                </h2>
+                <p class="section-subtitle">
+                    See what our clients from across Australia have to say about our services.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+                        <div class="mb-3">
+                            <div style="color: var(--warning); font-size: 1.2rem;">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="card-text" style="font-size: 1.1rem; font-style: italic; margin-bottom: 1.5rem;">
+                            "Web EASY Experts delivered a flawless service website for us. We saved over 60% compared to local quotes – and got better service."
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <div class="card-icon me-3" style="width: 60px; height: 60px; margin: 0;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h6 style="color: white; margin-bottom: 0.25rem; font-weight: 600;">Thiago Bernardez</h6>
+                                <p style="color: var(--gray-400); margin: 0; font-size: 0.9rem;">Sydney, NSW</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+                        <div class="mb-3">
+                            <div style="color: var(--warning); font-size: 1.2rem;">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="card-text" style="font-size: 1.1rem; font-style: italic; margin-bottom: 1.5rem;">
+                            "Great communication, top-notch design, and very affordable. Highly recommend to any Australian business!"
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <div class="card-icon me-3" style="width: 60px; height: 60px; margin: 0;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h6 style="color: white; margin-bottom: 0.25rem; font-weight: 600;">Angus Fraser</h6>
+                                <p style="color: var(--gray-400); margin: 0; font-size: 0.9rem;">Melbourne, VIC</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- === TESTIMONIALS SECTION END === -->
+
+    <!-- === PRICING SECTION START === -->
+    <section class="section-padding bg-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-dollar-sign"></i>
+                    Competitive Pricing
+                </div>
+                <h2 class="section-title">
+                    Cost of Website Development in Australia
+                </h2>
+                <p class="section-subtitle">
+                    Website development in Australia typically ranges from AUD 3,000 to AUD 15,000+. At Web EASY Experts, you get the same quality starting from a lower budget.
+                </p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center" style="background: rgba(255,255,255,0.05); border-radius: 20px; padding: 3rem; border: 1px solid rgba(255,255,255,0.1);">
+                        <div class="mb-4">
+                            <div class="stat-number" style="margin-bottom: 0;">Save 60%+</div>
+                            <div class="stat-label">Compared to Local Australian Agencies</div>
+                        </div>
+                        <div class="row g-4 mt-3">
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <i class="fas fa-check-circle" style="color: var(--accent); font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                                    <h6 style="color: white;">Fixed-Cost Packages</h6>
+                                    <p style="color: var(--gray-400); font-size: 0.9rem; margin: 0;">No hidden charges</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <i class="fas fa-tools" style="color: var(--accent); font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                                    <h6 style="color: white;">Nominal Maintenance</h6>
+                                    <p style="color: var(--gray-400); font-size: 0.9rem; margin: 0;">Low ongoing costs</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <i class="fas fa-gift" style="color: var(--accent); font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                                    <h6 style="color: white;">No Cost for Minor Changes</h6>
+                                    <p style="color: var(--gray-400); font-size: 0.9rem; margin: 0;">Small tweaks included</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <a href="#contact" class="btn btn-primary-custom btn-lg">
+                                <i class="fas fa-calculator me-2"></i>Get Custom Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- === PRICING SECTION END === -->
+
+    <!-- === CONTACT SECTION START === -->
+    <section class="section-padding" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-paper-plane"></i>
+                    Get Started Today
+                </div>
+                <h2 class="section-title">
+                    Ready to Grow Your Business Online?
+                </h2>
+                <p class="section-subtitle">
+                    Let's talk with Web EASY Experts, India based Australia's trusted website design and development agency. Schedule a free consultation today!
+                </p>
+            </div>
+
+            <div class="row g-5">
+                <div class="col-lg-8">
+                    <div style="background: rgba(255,255,255,0.05); border-radius: 20px; padding: 3rem; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                        <h4 style="color: white; margin-bottom: 2rem; text-align: center;">Schedule Your Free Consultation</h4>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Your Name" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 1rem; border-radius: 10px;">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Email Address" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 1rem; border-radius: 10px;">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" class="form-control" placeholder="Phone Number" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 1rem; border-radius: 10px;">
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 1rem; border-radius: 10px;">
+                                        <option>Select Service</option>
+                                        <option>WordPress Development</option>
+                                        <option>eCommerce Solutions</option>
+                                        <option>Custom Development</option>
+                                        <option>SEO Services</option>
+                                        <option>Website Redesign</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control" rows="5" placeholder="Tell us about your project..." style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 1rem; border-radius: 10px;"></textarea>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-primary-custom btn-lg">
+                                        <i class="fas fa-rocket me-2"></i>Start My Project
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div style="background: rgba(255,255,255,0.05); border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                        <h5 style="color: white; margin-bottom: 2rem; text-align: center;">Contact Information</h5>
+                        <ul class="contact-info">
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong style="color: white;">Email Us</strong><br>
+                                    <a href="mailto:info@webeasyexperts.com" style="color: var(--primary-light); text-decoration: none;">info@webeasyexperts.com</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <strong style="color: white;">Call Us</strong><br>
+                                    <a href="tel:+61123456789" style="color: var(--primary-light); text-decoration: none;">+61 123 456 789</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong style="color: white;">Business Hours</strong><br>
+                                    Mon - Fri: 9:00 AM - 6:00 PM AEST
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong style="color: white;">Serving</strong><br>
+                                    All Major Australian Cities<br>
+                                    <small style="color: var(--gray-400);">Sydney, Melbourne, Brisbane, Perth, Adelaide, Canberra, Tasmania</small>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-4 pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                            <h6 style="color: white; margin-bottom: 1rem; text-align: center;">100% Satisfaction Guarantee</h6>
+                            <div class="text-center">
+                                <i class="fas fa-shield-alt" style="color: var(--accent); font-size: 3rem; margin-bottom: 1rem;"></i>
+                                <p style="color: var(--gray-300); font-size: 0.9rem; margin: 0;">No upfront risk. No hidden charges. Just a professionally built website that works for your business.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- === CONTACT SECTION END === -->
+
+    <!-- === FOOTER SECTION START === -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <a href="#" class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin: 0; color: white;">Web EASY Experts</h4>
+                            <small style="color: var(--gray-400);">Leading Indian Agency for Australia</small>
+                        </div>
+                    </a>
+                    <p class="footer-description">
+                        Your trusted website design and development partner in Australia. We deliver world-class websites at competitive prices, helping Australian businesses grow online.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-column">
+                        <h5>Services</h5>
+                        <ul class="footer-links">
+                            <li><a href="#services">WordPress Development</a></li>
+                            <li><a href="#services">eCommerce Solutions</a></li>
+                            <li><a href="#services">Custom Development</a></li>
+                            <li><a href="#services">SEO Optimization</a></li>
+                            <li><a href="#services">Website Maintenance</a></li>
+                            <li><a href="#services">Mobile Responsive</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-column">
+                        <h5>Company</h5>
+                        <ul class="footer-links">
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#services">Our Services</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                            <li><a href="#">Portfolio</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="footer-column">
+                        <h5>Contact Information</h5>
+                        <ul class="contact-info">
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>Email:</strong><br>
+                                    <a href="mailto:info@webeasyexperts.com" style="color: var(--primary-light);">info@webeasyexperts.com</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <strong>Phone:</strong><br>
+                                    <a href="tel:+61123456789" style="color: var(--primary-light);">+61 123 456 789</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Serving:</strong><br>
+                                    All Major Australian Cities
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-4">
+                            <h6 style="color: white; margin-bottom: 1rem;">Newsletter</h6>
+                            <p style="color: var(--gray-400); font-size: 0.9rem; margin-bottom: 1rem;">Subscribe to get updates on web design trends and special offers.</p>
+                            <div class="newsletter-form">
+                                <input type="email" class="newsletter-input" placeholder="Your email address">
+                                <button type="submit" class="newsletter-btn">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p style="margin: 0;">&copy; 2024 Web EASY Experts. All rights reserved.</p>
+                </div>
+                <ul class="footer-links-bottom">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- === FOOTER SECTION END === -->
+
+    <!-- External JS Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 23, 42, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.background = 'rgba(15, 23, 42, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+            
+            // Simple validation
+            const name = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            
+            if (!name || !email) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your inquiry! We will get back to you within 24 hours.');
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        // Newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            if (!email) {
+                alert('Please enter your email address.');
+                return;
+            }
+            
+            const btn = this.querySelector('button');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            
+            setTimeout(() => {
+                alert('Thank you for subscribing to our newsletter!');
+                this.reset();
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i>';
+            }, 1500);
+        });
+
+        // Add some interactive animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe cards for animation
+        document.querySelectorAll('.feature-card, .service-card, .process-card, .testimonial-card, .stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(card);
+        });
+
+        // Counter animation for stats
+        function animateCounter(element) {
+            const target = parseInt(element.textContent.replace(/[^\d]/g, ''));
+            const suffix = element.textContent.replace(/[\d]/g, '');
+            let current = 0;
+            const increment = target / 30;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + suffix;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + suffix;
+                }
+            }, 50);
+        }
+
+        // Animate counters when they come into view
+        const statObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const number = entry.target.querySelector('.stat-number');
+                    if (number && !number.classList.contains('animated')) {
+                        number.classList.add('animated');
+                        animateCounter(number);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-card').forEach(card => {
+            statObserver.observe(card);
+        });
+    </script>
+</body>
+
+</html>
