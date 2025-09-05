@@ -126,6 +126,7 @@
         /* === HEADER STYLES END === */
 
         /* === HERO SECTION STYLES START === */
+
         .hero-slider {
             min-height: 100vh;
             position: relative;
@@ -287,6 +288,156 @@
             font-size: 0.9rem;
             color: var(--gray-400);
             margin: 0;
+        }
+
+        .hero-slider {
+            min-height: 100vh;
+            position: relative;
+            background: var(--gradient-dark);
+            padding-top: 80px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 80px);
+        }
+
+        .slides-wrapper {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+        .hero-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        /* Slide Navigation */
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-dot.active {
+            background: var(--primary);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.2);
+        }
+
+        .nav-dot:hover {
+            background: var(--primary-light);
+            transform: scale(1.1);
+        }
+
+        /* Slider Arrows */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+
+        .slider-arrow:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .arrow-prev {
+            left: 30px;
+        }
+
+        .arrow-next {
+            right: 30px;
+        }
+
+        /* Auto-play progress bar */
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.1s linear;
+            z-index: 10;
+        }
+
+        /* Slide animations */
+        .slide-fade-in {
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive updates */
+        @media (max-width: 768px) {
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+            }
+
+            .arrow-prev {
+                left: 15px;
+            }
+
+            .arrow-next {
+                right: 15px;
+            }
+
+            .slider-nav {
+                bottom: 20px;
+            }
+
+            .nav-dot {
+                width: 10px;
+                height: 10px;
+            }
         }
 
         /* === HERO SECTION STYLES END === */
