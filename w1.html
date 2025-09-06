@@ -1214,6 +1214,37 @@
         }
 
         /* about section end */
+        /* Fix placeholder text visibility */
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7) !important;
+            opacity: 1 !important;
+        }
+
+        .form-control::-webkit-input-placeholder {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        .form-control::-moz-placeholder {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        .form-control:-ms-input-placeholder {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        /* Fix select option colors */
+        .form-control option {
+            background: var(--gray-800);
+            color: white;
+        }
+
+        /* Form focus states */
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.15) !important;
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 0 0.2rem rgba(0, 82, 255, 0.25) !important;
+            color: white !important;
+        }
     </style>
 </head>
 
