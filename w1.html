@@ -2562,11 +2562,22 @@
         }
 
         // Animate counters when they come into view
+        // const statObserver = new IntersectionObserver(function (entries) {
+        //     entries.forEach(entry => {
+        //         if (entry.isIntersecting) {
+        //             const number = entry.target.querySelector('.stat-number');
+        //             if (number && !number.classList.contains('animated')) {
+        //                 number.classList.add('animated');
+        //                 animateCounter(number);
+        //             }
+        //         }
+        //     });
+        // }, observerOptions);
         const statObserver = new IntersectionObserver(function (entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const number = entry.target.querySelector('.stat-number');
-                    if (number && !number.classList.contains('animated')) {
+                    if (number && !number.classList.contains('animated') && number.getAttribute('data-counter') !== 'false') {
                         number.classList.add('animated');
                         animateCounter(number);
                     }
